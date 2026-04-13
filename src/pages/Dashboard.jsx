@@ -79,7 +79,7 @@ const Dashboard = () => {
                   alt={sdg.title}
                   className="w-full h-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-white/90 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-white/90 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm">
                   <span className="text-[8px] font-mono font-bold text-red-600 uppercase">Goal 0{sdg.id}</span>
                   <h3 className="text-[9px] font-extrabold leading-tight text-slate-900 tracking-tight uppercase">{sdg.title}</h3>
                 </div>
@@ -92,25 +92,59 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Statistik Section */}
-      <section className="bg-slate-50 py-32 px-6 border-y border-slate-100 overflow-hidden">
+      {/* Statistik Section - REVISED: MODERN IMAGE INTEGRATION */}
+      <section className="bg-slate-50 py-32 px-6 border-y border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-4">
-              <div className="p-3 bg-red-100 text-red-600 w-fit rounded-xl mb-6 shadow-inner border border-red-200">
-                <BarChart3 size={24} />
+            
+            {/* SISI KIRI: IMAGE & TITLE CARD */}
+            <div className="lg:col-span-5">
+              <div className="relative group">
+                {/* Decorative Elements */}
+                <div className="absolute -inset-4 bg-red-500/10 rounded-[2.5rem] rotate-2 group-hover:rotate-0 transition-transform duration-500" />
+                
+                {/* Image Container */}
+                <div className="relative bg-white p-3 rounded-[2rem] shadow-xl border border-slate-100 overflow-hidden">
+                  <img 
+                    src="/images/unj2.jpeg" 
+                    alt="Kampus UNJ" 
+                    className="w-full h-64 object-cover rounded-[1.5rem] mb-6 shadow-inner group-hover:scale-105 transition-transform duration-700"
+                  />
+                  
+                  {/* Text Content inside Card */}
+                  <div className="px-3 pb-4">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-2.5 bg-red-100 text-red-600 rounded-xl">
+                        <BarChart3 size={20} />
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
+                        Statistik <span className="text-red-600">Pendidikan</span>
+                      </h2>
+                    </div>
+                    <p className="text-sm text-slate-500 leading-relaxed font-medium italic">
+                      "Data fundamental yang dihimpun dari lingkungan Kampus Hijau sebagai acuan pengembangan framework STEM berkelanjutan."
+                    </p>
+                    <div className="mt-6 flex items-center gap-2 text-[10px] font-mono text-red-500 font-bold uppercase tracking-widest">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                      </span>
+                      Universitas Negeri Jakarta (UNJ) 2026
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-slate-950 mb-4 tracking-tight leading-tight">Statistik <br/>Pendidikan</h2>
-              <p className="text-sm text-slate-600 leading-relaxed mb-8 font-light italic">"Data fundamental yang menjadi acuan dalam pengembangan kerangka kerja STEM."</p>
             </div>
-            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+
+            {/* SISI KANAN: STATS GRID */}
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
               {[
                 { label: "Literasi Digital", value: "3.54", color: "bg-blue-600", icon: <Lightbulb size={20}/> },
                 { label: "Angka Partisipasi", value: "95.9%", color: "bg-red-600", icon: <Users size={20}/> },
                 { label: "Disparitas Desa", value: "18.2%", color: "bg-emerald-600", icon: <Globe2 size={20}/> },
                 { label: "STEM Interest", value: "42%", color: "bg-orange-600", icon: <PenTool size={20}/> }
               ].map((stat, idx) => (
-                <div key={idx} className="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-red-100">
+                <div key={idx} className="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-red-100 hover:-translate-y-1">
                   <div className={`w-11 h-11 ${stat.color} text-white rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-all`}>
                     {stat.icon}
                   </div>
@@ -119,20 +153,17 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Target Focus Section - FIXED: Ultra Smooth Shadows */}
+      {/* Target Focus Section */}
       <section className="max-w-7xl mx-auto py-32 px-6">
         <div className="group relative bg-gradient-to-br from-slate-50 via-white to-red-50/20 rounded-[3rem] p-10 md:p-16 border border-slate-100 overflow-hidden shadow-2xl shadow-slate-100/50 transition-all duration-700 hover:shadow-red-200/40">
-          
-          {/* Subtle decorative glow - Increased size, reduced opacity for a "soft bloom" effect */}
           <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-red-500/[0.04] rounded-full blur-[130px] pointer-events-none group-hover:bg-red-500/[0.07] transition-all duration-700" />
-          
           <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
             <div>
-              {/* Refined badge shadow */}
               <div className="bg-red-600 text-[10px] font-mono font-black px-4 py-1.5 w-fit rounded-full mb-6 tracking-[0.2em] text-white shadow-xl shadow-red-200/50">TARGET SOSIAL 4.4</div>
               <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight tracking-tight text-slate-950 group-hover:text-red-600 transition-colors">
                 Keterampilan Relevan untuk Pekerjaan Layak.
@@ -141,17 +172,14 @@ const Dashboard = () => {
                 Meningkatkan jumlah remaja dan orang dewasa yang memiliki keterampilan teknis guna mendukung ekosistem kewirausahaan nasional.
               </p>
             </div>
-            
             <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
               <div className="flex items-center gap-4 mb-8 border-b border-slate-100 pb-5">
-                {/* Subtle icon shadow */}
                 <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center font-black text-2xl text-white shadow-xl shadow-red-200/70 group-hover:rotate-6 transition-transform">4</div>
                 <p className="font-bold text-lg tracking-tight text-slate-950 leading-none">STEM Integration</p>
               </div>
               <ul className="space-y-4">
                 {["Digital Literacy Modules", "Vocational Tech Training", "AI-Driven Mentorship"].map((item, i) => (
                   <li key={i} className="flex items-center gap-4 group/item cursor-pointer">
-                    {/* Subtle arrow shadow */}
                     <div className="p-1.5 bg-red-600 rounded-full shadow-lg shadow-red-100/80 group-hover/item:scale-110 transition-transform flex items-center justify-center">
                       <ArrowRight size={12} className="text-white" />
                     </div>
