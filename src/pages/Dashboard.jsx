@@ -19,56 +19,74 @@ const Dashboard = () => {
     { id: 14, title: "Ekosistem Laut", fileName: "icon14.jpg" },
     { id: 15, title: "Ekosistem Darat", fileName: "icon15.jpg" },
     { id: 16, title: "Perdamaian & Keadilan", fileName: "icon16.jpg" },
-    { id: 17, title: "Kemitraan", fileName: "partnership.png" },
+    { id: 17, title: "Kemitraan", fileName: "icon17.jpg" },
   ];
 
   return (
     <div className="min-h-screen bg-white text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
       
-      {/* Hero Section */}
-      <header className="relative pt-48 pb-32 px-6 bg-slate-50 border-b border-slate-100">
+      {/* Hero Section - ENLARGED & REFINED WITH TEXT HIGHLIGHT */}
+      <header className="relative pt-48 pb-36 px-6 border-b border-slate-100 w-full min-h-[700px] flex items-center overflow-hidden">
+        {/* Background Image Container - Adjusted scale and stronger left-side white highlight */}
         <div 
-          className="absolute inset-0 bg-center bg-no-repeat transition-all duration-700"
+          className="absolute inset-0 w-full h-full bg-center bg-no-repeat transition-all duration-700 z-0"
           style={{ 
             backgroundImage: `
-              linear-gradient(to bottom, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%), 
-              linear-gradient(to right, rgba(255,255,255,1) 20%, rgba(255,255,255,0.4) 100%), 
+              linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%), 
+              linear-gradient(to right, rgba(255,255,255,1) 35%, rgba(255,255,255,0.7) 45%, rgba(255,255,255,0) 80%), 
               url('/images/plaza.jpg')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center 25%' 
           }}
         />
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-red-500/5 blur-[120px] pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto z-10">
+        
+        {/* White Glow / Spotlight behind the text for maximum clarity */}
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-0 opacity-90" />
+        
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-red-500/5 blur-[120px] pointer-events-none z-0" />
+        
+        <div className="relative max-w-7xl mx-auto z-10 w-full">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-10 bg-red-500 animate-pulse"></span>
-              <span className="text-red-700 font-mono text-xs uppercase tracking-[0.3em] font-bold">UNJ STEM Initiative 2026</span>
+            {/* UNJ STEM Initiative */}
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-12 bg-red-500 animate-pulse"></span>
+              <span className="text-red-700 font-mono text-[11px] uppercase tracking-[0.5em] font-black">UNJ STEM Initiative 2026</span>
             </div>
-            <h1 className="text-6xl md:text-9xl font-black text-slate-950 leading-[0.85] tracking-tighter mb-10">
-              Quality <br /> <span className="text-red-600">Education.</span>
+
+            {/* Quality Education - Resized and sharpened with text-slate-950 */}
+            <h1 className="text-6xl md:text-8xl font-black text-slate-950 leading-[0.95] tracking-tighter mb-12">
+              Quality <br /> 
+              <span className="text-red-600">Education.</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-normal max-w-2xl bg-white/60 backdrop-blur-md p-6 rounded-2xl border border-white/80 shadow-sm">
-              Membangun masa depan inklusif melalui akses pendidikan berkualitas yang merata dengan integrasi teknologi STEM.
-            </p>
+
+            {/* Description - Keeping your minimalist favorite style but clear */}
+            <div className="relative group max-w-2xl">
+              <div className="absolute -left-8 top-4 w-2 h-2 bg-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-[0_0_15px_rgba(220,38,38,0.5)]" />
+              
+              <p className="text-xl md:text-2xl leading-relaxed text-slate-800 font-light tracking-tight">
+                Membangun <span className="font-bold text-slate-950">masa depan inklusif</span> melalui akses pendidikan berkualitas yang merata dengan <span className="text-red-600 font-bold italic">integrasi teknologi STEM</span>.
+              </p>
+              
+              <div className="mt-8 h-1 w-24 bg-gradient-to-r from-red-600 to-transparent rounded-full" />
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Goal Cards Grid */}
-      <section className="max-w-7xl mx-auto py-20 px-6 relative">
+      {/* Goal Cards Grid - Tetap Sesuai Layout Favoritmu */}
+      <section className="max-w-7xl mx-auto py-24 px-6 relative">
         <div className="relative z-10">
-          <div className="flex items-center justify-between mb-12 border-b border-slate-100 pb-6">
+          <div className="flex items-center justify-between mb-16 border-b border-slate-100 pb-8">
             <h2 className="text-sm font-mono text-slate-500 uppercase tracking-widest flex items-center gap-3 relative">
               <span className="absolute -left-4 top-0 h-full w-1 bg-red-500 rounded-full"></span>
-              <Globe2 size={14} className="animate-spin-slow text-red-500" /> 17 Global Goals Overview
+              <Globe2 size={16} className="animate-spin-slow text-red-500" /> 17 Global Goals Overview
             </h2>
           </div>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-4">
             {sdgData.map((sdg) => (
               <div 
                 key={sdg.id} 
-                className={`group relative rounded-2xl border transition-all duration-500 cursor-pointer overflow-hidden aspect-square shadow-sm
+                className={`group relative rounded-2xl border transition-all duration-500 cursor-pointer overflow-hidden aspect-square shadow-sm flex items-center justify-center
                   ${sdg.focus 
                     ? 'border-red-600 ring-2 ring-red-100 shadow-lg shadow-red-200 hover:-translate-y-2' 
                     : 'bg-white border-slate-100 hover:shadow-xl hover:border-red-200 hover:-translate-y-2'
@@ -77,9 +95,9 @@ const Dashboard = () => {
                 <img 
                   src={`/images/sdgs/${sdg.fileName}`} 
                   alt={sdg.title}
-                  className="w-full h-full object-contain p-3 transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/90 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-white/95 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm">
                   <span className="text-[8px] font-mono font-bold text-red-600 uppercase">Goal 0{sdg.id}</span>
                   <h3 className="text-[9px] font-extrabold leading-tight text-slate-900 tracking-tight uppercase">{sdg.title}</h3>
                 </div>
@@ -92,51 +110,36 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Statistik Section - REVISED: MODERN IMAGE INTEGRATION */}
-      <section className="bg-slate-50 py-32 px-6 border-y border-slate-100">
-        <div className="max-w-7xl mx-auto">
+      {/* Sisa Section tetap aman */}
+      <section className="bg-slate-50 py-32 px-6 border-y border-slate-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
-            
-            {/* SISI KIRI: IMAGE & TITLE CARD */}
             <div className="lg:col-span-5">
               <div className="relative group">
-                {/* Decorative Elements */}
                 <div className="absolute -inset-4 bg-red-500/10 rounded-[2.5rem] rotate-2 group-hover:rotate-0 transition-transform duration-500" />
-                
-                {/* Image Container */}
                 <div className="relative bg-white p-3 rounded-[2rem] shadow-xl border border-slate-100 overflow-hidden">
                   <img 
                     src="/images/unj2.jpeg" 
                     alt="Kampus UNJ" 
                     className="w-full h-64 object-cover rounded-[1.5rem] mb-6 shadow-inner group-hover:scale-105 transition-transform duration-700"
                   />
-                  
-                  {/* Text Content inside Card */}
                   <div className="px-3 pb-4">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2.5 bg-red-100 text-red-600 rounded-xl">
                         <BarChart3 size={20} />
                       </div>
-                      <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
+                      <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight leading-none">
                         Statistik <span className="text-red-600">Pendidikan</span>
                       </h2>
                     </div>
                     <p className="text-sm text-slate-500 leading-relaxed font-medium italic">
                       "Data fundamental yang dihimpun dari lingkungan Kampus Hijau sebagai acuan pengembangan framework STEM berkelanjutan."
                     </p>
-                    <div className="mt-6 flex items-center gap-2 text-[10px] font-mono text-red-500 font-bold uppercase tracking-widest">
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                      </span>
-                      Universitas Negeri Jakarta (UNJ) 2026
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* SISI KANAN: STATS GRID */}
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
               {[
                 { label: "Literasi Digital", value: "3.54", color: "bg-blue-600", icon: <Lightbulb size={20}/> },
@@ -153,13 +156,12 @@ const Dashboard = () => {
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Target Focus Section */}
-      <section className="max-w-7xl mx-auto py-32 px-6">
+      {/* Target Section */}
+      <section className="max-w-7xl mx-auto py-32 px-6 relative">
         <div className="group relative bg-gradient-to-br from-slate-50 via-white to-red-50/20 rounded-[3rem] p-10 md:p-16 border border-slate-100 overflow-hidden shadow-2xl shadow-slate-100/50 transition-all duration-700 hover:shadow-red-200/40">
           <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-red-500/[0.04] rounded-full blur-[130px] pointer-events-none group-hover:bg-red-500/[0.07] transition-all duration-700" />
           <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
@@ -174,7 +176,7 @@ const Dashboard = () => {
             </div>
             <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
               <div className="flex items-center gap-4 mb-8 border-b border-slate-100 pb-5">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center font-black text-2xl text-white shadow-xl shadow-red-200/70 group-hover:rotate-6 transition-transform">4</div>
+                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center font-black text-2xl text-white shadow-xl shadow-red-200/70 group-hover:rotate-6 transition-transform leading-none">4</div>
                 <p className="font-bold text-lg tracking-tight text-slate-950 leading-none">STEM Integration</p>
               </div>
               <ul className="space-y-4">
