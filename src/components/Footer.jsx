@@ -58,15 +58,16 @@ const Footer = () => {
         </div>
 
         {/* Bagian Bawah - Copyright & Tech Stack (Tetap) */}
-        <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-4">
+        {/* <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6"></div> */}
+        <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-center items-center gap-6">
+          {/* <div className="flex items-center gap-4">
             <p className="text-[10px] text-slate-400 font-mono tracking-widest">
               POWERED BY <span className="text-slate-900 font-bold">REACT.JS</span> + <span className="text-slate-900 font-bold">TAILWIND CSS</span>
             </p>
-          </div>
+          </div> */}
           
           <p className="text-[10px] text-slate-400 font-mono tracking-tighter">
-            &copy; {currentYear} — <span className="text-slate-900 font-bold uppercase">Agastya Dava Nurrahman</span>. STEM RESEARCH FRAMEWORK.
+            &copy; {currentYear} — <span className="text-slate-900 font-bold uppercase">Agastya Dava Nurrahman</span>. STEM SDGS PROJECTS.
           </p>
         </div>
       </div>
