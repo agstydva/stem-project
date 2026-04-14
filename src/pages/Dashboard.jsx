@@ -11,6 +11,8 @@ import {
   ChevronRight 
 } from 'lucide-react';
 
+
+
 const Dashboard = () => {
   // State untuk mengontrol slider
   const [currentSlide, setCurrentSlide] = useState(0);

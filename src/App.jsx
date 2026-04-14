@@ -2,24 +2,42 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Import semua halaman yang baru kamu buat di folder pages
+// Halaman Utama
 import Dashboard from './pages/Dashboard';
-import Empathy from './pages/Empathy';
-import Ideation from './pages/Ideation.jsx';
+
+// Import Halaman SDG (Contoh beberapa, silakan buat filenya di folder pages)
+import Education from './pages/Education'; 
+import Hunger from './pages/Hunger';
+import Health from './pages/Health';
+
+import Empathy from "./pages/Empathy";
+import Ideation from './pages/Ideation';
 import Prototyping from './pages/Prototyping';
 import Testing from './pages/Testing';
 import Reflection from './pages/Reflection';
+// ... import lainnya sampai 17 file jika ingin dipisah satu-satu
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-[#020617]">
-        {/* Navbar akan selalu muncul di setiap halaman */}
+      {/* Tips: Karena Dashboard kamu pakai background putih, 
+        pastikan bg-[#020617] (hitam) ini memang warna yang kamu mau 
+        atau ganti ke bg-white jika ingin senada dengan Dashboard 
+      */}
+      <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
         
         <main className="flex-grow">
           <Routes>
+            {/* Route Utama */}
             <Route path="/" element={<Dashboard />} />
+            
+            {/* Route SDG sesuai path di sdgData */}
+            <Route path="/education" element={<Education />} />
+            <Route path="/hunger" element={<Hunger />} />
+            <Route path="/health" element={<Health />} />
+            
+            {/* Route Tambahan dari code kamu sebelumnya */}
             <Route path="/empathy" element={<Empathy />} />
             <Route path="/ideation" element={<Ideation />} />
             <Route path="/prototyping" element={<Prototyping />} />
@@ -28,7 +46,6 @@ function App() {
           </Routes>
         </main>
 
-        {/* Footer akan selalu muncul di setiap halaman */}
         <Footer />
       </div>
     </Router>
