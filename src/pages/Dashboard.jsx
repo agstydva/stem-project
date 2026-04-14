@@ -85,7 +85,7 @@ const Dashboard = () => {
           />
         ))}
 
-        {/* Tombol Navigasi Manual (Muncul saat Hover) */}
+        {/* Tombol Navigasi Manual */}
         <div className="absolute inset-0 z-30 flex items-center justify-between px-6 pointer-events-none">
           <button 
             onClick={prevSlide}
