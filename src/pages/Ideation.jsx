@@ -1,107 +1,144 @@
 import React from 'react';
-import { Lightbulb, Zap, Rocket, BrainCircuit, Sparkles, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { 
+  Lightbulb, 
+  Zap, 
+  Rocket, 
+  BrainCircuit, 
+  Sparkles, 
+  ChevronRight, 
+  ArrowLeft 
+} from 'lucide-react';
 
 const Ideation = () => {
   return (
-    <div className="min-h-screen bg-white pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-white text-slate-700 pb-20 selection:bg-red-100 selection:text-red-600">
+      
+      {/* Refined Navbar */}
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center">
+          <Link 
+            to="/" 
+            className="group relative flex items-center gap-3 py-2 px-5 -ml-5 rounded-full transition-all duration-300 overflow-hidden active:scale-95"
+          >
+            <div className="absolute inset-0 bg-slate-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
+            <div className="relative z-10 flex items-center gap-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-red-500 group-hover:shadow-lg group-hover:shadow-red-200 transition-all duration-300">
+                <ArrowLeft size={16} className="text-slate-500 group-hover:text-white transition-all duration-300 group-hover:-translate-x-1" />
+              </div>
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-slate-400 group-hover:text-slate-900 transition-colors duration-300">
+                Back to Dashboard
+              </span>
+            </div>
+          </Link>
+        </div>
+      </nav>
+
+      <div className="max-w-7xl mx-auto pt-32 px-6">
         
         {/* Header Section */}
-        <div className="mb-20">
+        <div className="mb-16">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-red-100 p-2 rounded-lg text-red-600">
+            <div className="p-2.5 bg-red-500 text-white rounded-xl shadow-lg shadow-red-100">
               <Lightbulb size={20} />
             </div>
-            <span className="text-red-600 font-mono text-xs uppercase tracking-[0.3em] font-bold">Phase 02: Ideation & Concept</span>
+            <div className="h-px w-8 bg-red-200"></div>
+            <span className="text-red-500 font-mono font-black tracking-[0.2em] text-[10px] uppercase">Phase 02: Ideation</span>
           </div>
-          <h1 className="text-6xl md:text-7xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
-            Strategic <br /> <span className="text-slate-200">Solutions.</span>
+          <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6 leading-tight">
+            Strategic <span className="text-red-500">Solutions.</span>
           </h1>
-          <p className="text-slate-500 max-w-2xl text-lg font-light leading-relaxed">
+          <p className="text-slate-500 max-w-2xl text-lg font-medium leading-relaxed">
             Mentransformasi tantangan pendidikan menjadi ide konkret melalui pendekatan desain yang berpusat pada pengguna dan efisiensi teknologi.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
           
-          {/* How Might We Card */}
-          <div className="lg:col-span-5 sticky top-32">
-            <div className="bg-slate-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden group shadow-2xl shadow-slate-200">
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-red-600/20 blur-3xl group-hover:bg-red-600/40 transition-all duration-700" />
+          {/* How Might We Card - Light Version */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
+            <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-[2.5rem] p-10 text-white shadow-xl shadow-red-100 relative overflow-hidden group">
+              <Sparkles className="absolute -bottom-4 -right-4 text-white/10 group-hover:rotate-12 transition-transform duration-700" size={160} />
               
               <div className="relative z-10">
-                <p className="text-red-500 font-mono text-[10px] uppercase tracking-[0.3em] mb-6 font-bold">The Challenge Statement</p>
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-8 group-hover:text-red-50 transition-colors">
+                <p className="text-red-100 font-mono text-[9px] uppercase tracking-[0.3em] mb-6 font-bold opacity-80">The Challenge Statement</p>
+                <h2 className="text-2xl md:text-3xl font-black leading-tight mb-8">
                   "Bagaimana kita bisa menyediakan simulasi STEM yang interaktif tanpa memerlukan perangkat high-end?"
                 </h2>
-                <div className="flex items-center gap-4 text-slate-400 group-hover:text-white transition-colors">
-                  <BrainCircuit size={32} strokeWidth={1} />
-                  <p className="text-sm font-light italic">Brainstorming process based on SDG 4.4 Target.</p>
+                <div className="flex items-center gap-4 text-red-100/80">
+                  <BrainCircuit size={28} strokeWidth={1.5} />
+                  <p className="text-xs font-medium italic">Brainstorming process based on SDG 4.4 Target.</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Solution Path */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4">
             {[
               { 
                 title: "Lightweight Web Module", 
                 desc: "Arsitektur web yang dioptimasi untuk render cepat pada perangkat dengan spesifikasi rendah dan koneksi internet terbatas.",
-                icon: <Zap className="text-orange-500" />,
+                icon: <Zap size={20} />,
+                color: "text-orange-500",
+                bg: "bg-orange-50",
                 tag: "TECHNOLOGY"
               },
               { 
                 title: "Peer-to-Peer Learning", 
                 desc: "Sistem distribusi materi pendidikan terdesentralisasi untuk memudahkan akses resource antar institusi pendidikan.",
-                icon: <Sparkles className="text-emerald-500" />,
+                icon: <Sparkles size={20} />,
+                color: "text-emerald-500",
+                bg: "bg-emerald-50",
                 tag: "COMMUNITY"
               },
               { 
                 title: "AI-Powered Mentor", 
                 desc: "Integrasi asisten virtual berbasis Large Language Model untuk membantu bimbingan teknis secara personal dan real-time.",
-                icon: <Rocket className="text-blue-500" />,
+                icon: <Rocket size={20} />,
+                color: "text-blue-500",
+                bg: "bg-blue-50",
                 tag: "INTELLIGENCE"
               }
             ].map((idea, idx) => (
               <div 
                 key={idx} 
-                className="group relative p-8 bg-white border border-slate-100 rounded-[2rem] hover:shadow-xl hover:shadow-slate-100 hover:border-red-100 transition-all duration-500 cursor-default"
+                className="group relative p-8 bg-white border border-slate-100 rounded-[2.5rem] hover:shadow-xl hover:shadow-red-500/5 hover:border-red-100 transition-all duration-500 cursor-default"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex gap-6">
-                    <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-red-50 transition-colors duration-500">
+                    <div className={`w-12 h-12 ${idea.bg} ${idea.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-sm`}>
                       {idea.icon}
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono font-black text-slate-400 group-hover:text-red-500 transition-colors">
-                        0{idx + 1} — {idea.tag}
+                      <span className="text-[9px] font-black text-slate-400 group-hover:text-red-500 transition-colors tracking-widest uppercase">
+                        Idea 0{idx + 1} — {idea.tag}
                       </span>
-                      <h4 className="text-xl font-bold text-slate-900 mt-1 mb-3 group-hover:translate-x-1 transition-transform">
+                      <h4 className="text-lg font-bold text-slate-900 mt-1 mb-2">
                         {idea.title}
                       </h4>
-                      <p className="text-slate-500 leading-relaxed text-sm max-w-md">
+                      <p className="text-slate-500 leading-relaxed text-sm max-w-md font-medium">
                         {idea.desc}
                       </p>
                     </div>
                   </div>
-                  <ChevronRight size={20} className="text-slate-300 group-hover:text-red-500 group-hover:translate-x-2 transition-all" />
+                  <ChevronRight size={18} className="text-slate-300 group-hover:text-red-500 group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Selected Idea Footer */}
-        <div className="mt-24 p-12 bg-slate-50 rounded-[3rem] border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* Selected Idea Footer - Soft Version */}
+        <div className="mt-20 p-12 bg-slate-50 rounded-[3rem] border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-xl text-center md:text-left">
-            <h3 className="text-2xl font-black text-slate-900 mb-2 tracking-tight">Proposed Final Concept</h3>
-            <p className="text-slate-500 font-light">
+            <h3 className="text-xl font-bold text-slate-900 mb-2 tracking-tight">Proposed Final Concept</h3>
+            <p className="text-slate-500 font-medium text-sm">
               Membangun platform "EduStem" yang menggabungkan efisiensi web dengan kecerdasan buatan untuk menciptakan ekosistem belajar yang adaptif.
             </p>
           </div>
-          <button className="px-10 py-4 bg-red-600 text-white rounded-full font-bold text-xs tracking-widest hover:bg-slate-900 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-red-200">
-            VIEW PROTOTYPE
+          <button className="px-8 py-4 bg-red-500 text-white rounded-full font-black text-[10px] tracking-[0.2em] hover:bg-red-600 active:scale-95 transition-all shadow-lg shadow-red-100 uppercase">
+            View Prototype
           </button>
         </div>
 
