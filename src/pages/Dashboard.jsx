@@ -263,6 +263,156 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
+
+      {/* ================= ACADEMIC CONTENT: WHY SDG 4 & TARGET 2030 (VISUAL GRID) ================= */}
+      <section className="max-w-7xl mx-auto pb-24 px-6 relative">
+        <div className="grid md:grid-cols-2 gap-8">
+          
+          {/* Why SDG 4 Card */}
+          <div className="group/why bg-white p-6 md:p-8 rounded-[3rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-red-100 hover:-translate-y-2 transition-all duration-500">
+            <div>
+              {/* Visual Container */}
+              <div className="w-full h-52 bg-slate-100 rounded-[2rem] mb-6 overflow-hidden border border-slate-100 shadow-inner relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" 
+                  alt="Urgensi SDG 4" 
+                  className="w-full h-full object-cover group-hover/why:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-red-600 text-white font-mono text-[9px] font-black px-3 py-1 rounded-full shadow-md uppercase tracking-wider">Global Urgency</div>
+              </div>
+              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-4">
+                Mengapa <span className="text-red-600">SDG 4</span> Begitu Krusial?
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal mb-4">
+                Pendidikan adalah motor penggerak utama pembangunan berkelanjutan. Akses inklusif dan adil terbukti efektif memutus rantai kemiskinan antargenerasi serta memperkecil jurang kesenjangan sosial[cite: 1].
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                Di era transformasi teknologi, pemenuhan hak ini bergeser pada pembekalan literasi digital, penguasaan adaptasi STEM, dan perlindungan kesejahteraan kognitif mahasiswa magang agar siap menghadapi dinamika industri masa depan[cite: 1].
+              </p>
+            </div>
+          </div>
+
+          {/* Target 2030 Card */}
+          <div className="group/target bg-gradient-to-br from-slate-50 via-white to-red-50/10 p-6 md:p-8 rounded-[3rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-red-100 hover:-translate-y-2 transition-all duration-500">
+            <div>
+              {/* Visual Container */}
+              <div className="w-full h-52 bg-slate-100 rounded-[2rem] mb-6 overflow-hidden border border-slate-100 shadow-inner relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=800&q=80" 
+                  alt="Target SDGs 2030" 
+                  className="w-full h-full object-cover group-hover/target:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-slate-950 text-white font-mono text-[9px] font-black px-3 py-1 rounded-full shadow-md uppercase tracking-wider">Agenda Milestones</div>
+              </div>
+              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-6">
+                Target Utama <span className="text-red-600">Menuju 2030</span>
+              </h3>
+              <div className="space-y-4 text-sm text-slate-600 font-normal">
+                <div className="flex gap-4 items-start">
+                  <span className="font-mono font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-lg text-xs">4.1</span>
+                  <p className="leading-relaxed">Memastikan seluruh anak menyelesaikan pendidikan dasar dan menengah yang gratis, adil, dan berkualitas[cite: 1].</p>
+                </div>
+                <div className="flex gap-4 items-start border-t border-slate-100 pt-3">
+                  <span className="font-mono font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-lg text-xs">4.3</span>
+                  <p className="leading-relaxed">Menjamin akses setara bagi perempuan dan laki-laki terhadap pendidikan vokasi, teknis, dan tinggi terjangkau[cite: 1].</p>
+                </div>
+                <div className="flex gap-4 items-start border-t border-slate-100 pt-3">
+                  <span className="font-mono font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-lg text-xs">4.4</span>
+                  <p className="leading-relaxed font-semibold text-slate-950">Meningkatkan jumlah remaja dan orang dewasa yang memiliki keterampilan relevan untuk pekerjaan layak dan kewirausahaan[cite: 1].</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= ACADEMIC CONTENT: 5 KEY FACTS VISUAL GRID ================= */}
+      <section className="max-w-7xl mx-auto pb-32 px-6 relative">
+        <div className="border-t border-slate-100 pt-16">
+          <div className="flex flex-col mb-12">
+            <h2 className="text-sm font-mono text-slate-500 uppercase tracking-widest flex items-center gap-3 relative mb-3">
+              <span className="absolute -left-4 top-0 h-full w-1 bg-red-500 rounded-full"></span>
+              <BarChart3 size={16} className="text-red-500" /> SDG 4 National Data Metrics
+            </h2>
+            <h3 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight">
+              5 Fakta Utama <span className="text-red-600">Pendidikan di Indonesia</span>
+            </h3>
+          </div>
+
+          {/* Grid Kartu Visual Fakta Kunci */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                no: "01",
+                url: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=500&q=80",
+                title: "Partisipasi Sekolah Menengah",
+                desc: "Angka Partisipasi Murni (APM) jenjang SMA/SMK/Sederajat di Indonesia telah mencapai nilai 73,15%. Akselerasi saat ini difokuskan penuh untuk mereduksi kesenjangan kualitas antar-daerah[cite: 1].",
+                source: "(Pusat Data Kemendikbudristek, 2023)"
+              },
+              {
+                no: "02",
+                url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
+                title: "Kesenjangan Literasi Digital",
+                desc: "Indeks Literasi Digital nasional berada pada skor 3,54 dari skala 5, namun terdapat disparitas akses teknologi antara wilayah rural dan urban sebesar 18,2% yang memengaruhi kesiapan kerja talenta muda[cite: 1].",
+                source: "(Kementerian PPN/Bappenas, 2023)"
+              },
+              {
+                no: "03",
+                url: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=500&q=80",
+                title: "Minat Ekosistem STEM",
+                desc: "Keterlibatan aktif talenta muda dalam rumpun ilmu STEM nasional berada di angka 42%[cite: 1]. Tantangan terbesar kurikulum vokasi saat ini adalah menyelaraskan teori dengan kebutuhan praktis industri digital[cite: 1].",
+                source: "(Kementerian PPN/Bappenas, 2024)"
+              },
+              {
+                no: "04",
+                url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80", // Gambar Stres/Fokus Belajar
+                title: "Stres Pembelajaran Digital",
+                desc: "Pengerjaan tugas di depan layar komputer secara konstan memicu Computer Vision Syndrome (CVS) dan stres kognitif pada 65% mahasiswa magang teknologi, yang menghambat optimalisasi transfer pengetahuan kerja[cite: 1].",
+                source: "(Kementerian Kesehatan RI, 2024)"
+              },
+              {
+                no: "05",
+                url: "https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=500&q=80", // Gambar Hidrasi/Botol Air di Meja Kerja
+                title: "Tingkat Hidrasi Pelajar IT",
+                desc: "Lebih dari 58% pelajar bidang teknologi mengalami dehidrasi ringan selama proses pengerjaan proyek karena absennya pengingat berkala, berimbas langsung pada penurunan konsentrasi kognitif belajar[cite: 1].",
+                source: "(Badan Pusat Statistik, 2024)"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="group/card bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-red-100 hover:-translate-y-2 transition-all duration-500">
+                <div>
+                  {/* Inner Card Image */}
+                  <div className="w-full h-40 bg-slate-100 rounded-[1.5rem] mb-5 overflow-hidden border border-slate-50 shadow-inner">
+                    <img 
+                      src={item.url} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="text-xs font-mono font-bold text-red-600 mb-2">KEY DATA {item.no}</div>
+                  <h4 className="text-lg font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover/card:text-red-600 transition-colors">{item.title}</h4>
+                  <p className="text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                </div>
+                <span className="text-[11px] font-mono font-bold text-slate-400 block mt-5 italic">{item.source}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Daftar Pustaka Akademik (APA Style) */}
+          <div className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100">
+            <h4 className="text-xs font-mono font-black text-slate-400 uppercase tracking-widest mb-4">Referensi Akademik (APA Style)</h4>
+            <div className="text-xs text-slate-600 space-y-3 font-normal leading-relaxed">
+              <p className="pl-6 -indent-6">Badan Pusat Statistik. (2024). <em>Statistik Pemuda Indonesia 2024</em>. Jakarta: Badan Pusat Statistik[cite: 1].</p>
+              <p className="pl-6 -indent-6">Kementerian Kesehatan RI. (2024). <em>Laporan Pemantauan Profil Kesehatan Kerja Digital dan Ergonomi Nasional</em>. Jakarta: Direktorat K3 Kemenkes RI[cite: 1].</p>
+              <p className="pl-6 -indent-6">Kementerian PPN/Bappenas. (2023). <em>Laporan Evaluasi Rencana Aksi Nasional Pilar Pembangunan Sosial SDGs</em>. Jakarta: Sekretariat Nasional SDGs Indonesia[cite: 1].</p>
+              <p className="pl-6 -indent-6">Kementerian PPN/Bappenas. (2024). <em>Matriks Indikator Pendidikan Berkualitas dan Akselerasi Keterampilan Kerja Menuju 2030</em>. Jakarta: Sekretariat Nasional SDGs Indonesia[cite: 1].</p>
+              <p className="pl-6 -indent-6">Pusat Data dan Teknologi Informasi Kemendikbudristek. (2023). <em>Analisis Capaian Indikator Pendidikan Menengah dan Kejuruan Indonesia</em>. Jakarta: Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi[cite: 1].</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
     </div>
   );
 };
