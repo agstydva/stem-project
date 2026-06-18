@@ -44,7 +44,7 @@ const Dashboard = () => {
   const sdgData = [
     { id: 1, title: "Tanpa Kemiskinan", fileName: "icon1.jpg", path: "/education" },
     { id: 2, title: "Tanpa Kelaparan", fileName: "icon2.jpg", path: "/hunger" },
-    { id: 3, title: "Kehidupan Sehat", fileName: "icon3.jpg", path: "/health" },
+    { id: 3, title: "Kehidupan Sehat", fileName: "icon3.jpg", focus: true, path: "/health" },
     { id: 4, title: "Pendidikan Berkualitas", fileName: "icon4.jpg", focus: true, path: "/education" },
     { id: 5, title: "Kesetaraan Gender", fileName: "icon5.jpg", path: "/gender" },
     { id: 6, title: "Air Bersih", fileName: "icon6.jpg", path: "/water" },
