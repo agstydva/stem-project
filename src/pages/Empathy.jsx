@@ -39,21 +39,45 @@ const Empathy = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
-            { tag: "WHO", title: "Siapa Target Audiens?", image: "empathy-who.jpg", desc: "Mahasiswa magang, siswa pendidikan vokasi IT, dan talenta muda yang menjalani peningkatan keterampilan digital intensif di depan komputer dalam durasi panjang." },
-            { tag: "WHY", title: "Mengapa Ini Masalah SDG 4?", image: "empathy-why.jpg", desc: "Proses transfer ilmu dan produktivitas belajar terhambat serius ketika siswa mengalami stres mental, keletihan mata (Computer Vision Syndrome), serta dehidrasi karena lupa minum." },
-            { tag: "WHAT", title: "Apa Masalah Utamanya?", image: "empathy-what.jpg", desc: "Absennya modul interaktif yang mendisiplinkan pelajar untuk mengambil jeda mikro (micro-breaks), melakukan peregangan fisik terpandu, dan mengontrol volume hidrasi secara berkala." },
-            { tag: "WHERE", title: "Di Mana Masalah Terjadi?", image: "empathy-where.jpg", desc: "Di laboratorium komputer kampus, ruang kerja komunal, tempat magang, serta area belajar mandiri di rumah selama pembelajaran jarak jauh." },
-            { tag: "HOW", title: "Bagaimana Solusi Bekerja?", image: "empathy-how.jpg", desc: "Mengintegrasikan alat pengingat otomatis ke dalam platform edutekno web untuk memaksa interupsi sehat, memandu gerakan ergonomis, dan mengembalikan fokus kognitif pelajar." }
+            { 
+              tag: "WHO", 
+              title: "Siapa Target Audiens?", 
+              image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop", 
+              desc: "Mahasiswa magang, siswa pendidikan vokasi IT, dan talenta muda yang menjalani peningkatan keterampilan digital intensif di depan komputer dalam durasi panjang." 
+            },
+            { 
+              tag: "WHY", 
+              title: "Mengapa Ini Masalah SDG 4?", 
+              image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop", 
+              desc: "Proses transfer ilmu dan produktivitas belajar terhambat serius ketika siswa mengalami stres mental, keletihan mata (Computer Vision Syndrome), serta dehidrasi karena lupa minum." 
+            },
+            { 
+              tag: "WHAT", 
+              title: "Apa Masalah Utamanya?", 
+              image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop", 
+              desc: "Absennya modul interaktif yang mendisiplinkan pelajar untuk mengambil jeda mikro (micro-breaks), melakukan peregangan fisik terpandu, dan mengontrol volume hidrasi secara berkala." 
+            },
+            { 
+              tag: "WHERE", 
+              title: "Di Mana Masalah Terjadi?", 
+              image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop", 
+              desc: "Di laboratorium komputer kampus, ruang kerja komunal, tempat magang, serta area belajar mandiri di rumah selama pembelajaran jarak jauh." 
+            },
+            { 
+              tag: "HOW", 
+              title: "Bagaimana Solusi Bekerja?", 
+              image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=600&auto=format&fit=crop", 
+              desc: "Mengintegrasikan alat pengingat otomatis ke dalam platform edutekno web untuk memaksa interupsi sehat, memandu gerakan ergonomis, dan mengembalikan fokus kognitif pelajar." 
+            }
           ].map((item, idx) => (
             <div key={idx} className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-red-100 transition-all duration-500">
               <div>
                 {/* Slot Gambar untuk Setiap Poin 4W1H */}
                 <div className="w-full h-40 bg-slate-100 rounded-[1.5rem] mb-5 overflow-hidden border border-slate-100 shadow-inner">
                   <img 
-                    src={`/images/${item.image}`} 
+                    src={item.image} 
                     alt={item.title} 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { e.target.style.display = 'none'; }} // Menyembunyikan ikon broken image sebelum Anda mengisi filenya
                   />
                 </div>
                 <div className="text-xs font-mono font-bold text-red-600 mb-2">{item.tag} PROCESS</div>
@@ -75,10 +99,9 @@ const Empathy = () => {
                 {/* Slot Gambar Metodologi */}
                 <div className="w-full h-48 bg-slate-100 rounded-[1.5rem] mb-6 overflow-hidden border border-slate-100 shadow-inner">
                   <img 
-                    src="/images/research-method.jpg" 
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" 
                     alt="Metodologi Riset STEM" 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { e.target.style.display = 'none'; }}
                   />
                 </div>
                 <div className="flex items-center gap-3 mb-4">
@@ -89,12 +112,12 @@ const Empathy = () => {
                 </div>
                 <h4 className="text-sm font-bold text-slate-950 mb-2">Analisis Kesiapan Belajar Holistik</h4>
                 <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
-                  Wawancara kualitatif mendalam dan survei kuantitatif diterapkan guna memetakan korelasi langsung antara tingkat kelelahan fisik (ergonomi layar) dengan penurunan daya serap serta fokus mahasiswa selama menyelesaikan tugas modul digital[cite: 1].
+                  Wawancara kualitatif mendalam dan survei kuantitatif diterapkan guna memetakan korelasi langsung antara tingkat kelelahan fisik (ergonomi layar) dengan penurunan daya serap serta fokus mahasiswa selama menyelesaikan tugas modul digital.
                 </p>
                 <div className="border-t border-slate-100 pt-5">
                   <h4 className="text-xs font-mono font-bold text-red-600 uppercase mb-3">Tanggapan Terhadap Bukti</h4>
                   <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                    Temuan membuktikan bahwa intervensi teknologi berupa notifikasi psikologis interaktif jauh lebih efektif mengubah kebiasaan buruk pelajar daripada sekadar mengandalkan instruksi teks pasif[cite: 1].
+                    Temuan membuktikan bahwa intervensi teknologi berupa notifikasi psikologis interaktif jauh lebih efektif mengubah kebiasaan buruk pelajar daripada sekadar mengandalkan instruksi teks pasif.
                   </p>
                 </div>
               </div>
@@ -110,17 +133,16 @@ const Empathy = () => {
               <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm grid md:grid-cols-12 gap-6 items-center">
                 <div className="md:col-span-4 h-32 bg-slate-100 rounded-[1.5rem] overflow-hidden border">
                   <img 
-                    src="/images/interview-student.jpg" 
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
                     alt="Dokumentasi Wawancara Mahasiswa" 
                     className="w-full h-full object-cover"
-                    onError={(e) => { e.target.style.display = 'none'; }}
                   />
                 </div>
                 <div className="md:col-span-8">
                   <p className="text-sm text-slate-600 italic font-medium leading-relaxed">
                     "Kalau sudah fokus melakukan analisis data atau pengerjaan web design berjam-jam, saya sering lupa waktu dan mengabaikan botol minum. Efeknya mata terasa sangat perih, leher kaku, dan konsentrasi belajar menurun drastis karena pusing di akhir sesi."
                   </p>
-                  <p className="text-[11px] font-mono font-bold text-slate-400 block mt-3">— Informan A (Mahasiswa Magang Bidang Ilmu Komputer, Smt 6)[cite: 1]</p>
+                  <p className="text-[11px] font-mono font-bold text-slate-400 block mt-3">— Informan A (Mahasiswa Magang Bidang Ilmu Komputer, Smt 6)</p>
                 </div>
               </div>
 
@@ -128,17 +150,16 @@ const Empathy = () => {
               <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm grid md:grid-cols-12 gap-6 items-center">
                 <div className="md:col-span-4 h-32 bg-slate-100 rounded-[1.5rem] overflow-hidden border">
                   <img 
-                    src="/images/interview-vokasi.jpg" 
+                    src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=600&auto=format&fit=crop" 
                     alt="Dokumentasi Siswa Vokasi" 
                     className="w-full h-full object-cover"
-                    onError={(e) => { e.target.style.display = 'none'; }}
                   />
                 </div>
                 <div className="md:col-span-8">
                   <p className="text-sm text-slate-600 italic font-medium leading-relaxed">
                     "Kurikulum mengajarkan kami intensif membina technical skill digital, tetapi belum membekali kebiasaan ergonomi yang benar saat bekerja di depan layar. Program pengingat terintegrasi dengan tutorial peregangan singkat sangat kami butuhkan."
                   </p>
-                  <p className="text-[11px] font-mono font-bold text-slate-400 block mt-3">— Informan B (Siswa Vokasi IT, Peserta Internship Front-End)[cite: 1]</p>
+                  <p className="text-[11px] font-mono font-bold text-slate-400 block mt-3">— Informan B (Siswa Vokasi IT, Peserta Internship Front-End)</p>
                 </div>
               </div>
             </div>
@@ -177,13 +198,13 @@ const Empathy = () => {
                     <td className="py-4 pr-4 font-bold text-slate-950">Aplikasi Timer Alarm Smartphone</td>
                     <td className="py-4 pr-4">Praktis diatur secara manual oleh masing-masing siswa.</td>
                     <td className="py-4 pr-4">Hanya berupa dering biasa yang mudah dimatikan/diabaikan, tidak terhubung ke desktop tempat belajar, dan tidak menyajikan panduan fisik.</td>
-                    <td className="py-4 text-red-600 font-medium">Membangun ekosistem modul web pembelajaran yang memaksa interupsi visual berupa animasi taktik peregangan sehat langsung di layar utama[cite: 1].</td>
+                    <td className="py-4 text-red-600 font-medium">Membangun ekosistem modul web pembelajaran yang memaksa interupsi visual berupa animasi taktik peregangan sehat langsung di layar utama.</td>
                   </tr>
                   <tr>
                     <td className="py-4 pr-4 font-bold text-slate-950">Buku Panduan Teori K3 Akademik</td>
                     <td className="py-4 pr-4">Dokumentasi aturan posisi duduk anatomis sangat akurat secara medis.</td>
                     <td className="py-4 pr-4">Format materi pasif, tidak menempel dalam ritme kerja/belajar harian, serta tidak memantau volume hidrasi secara real-time.</td>
-                    <td className="py-4 text-red-600 font-medium">Mentransformasikan literasi teks menjadi fitur kalkulator hidrasi interaktif dan pelacak waktu jeda mikro yang fungsional[cite: 1].</td>
+                    <td className="py-4 text-red-600 font-medium">Mentransformasikan literasi teks menjadi fitur kalkulator hidrasi interaktif dan pelacak waktu jeda mikro yang fungsional.</td>
                   </tr>
                 </tbody>
               </table>

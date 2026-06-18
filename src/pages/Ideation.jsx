@@ -40,12 +40,23 @@ const Ideation = () => {
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           
           {/* How Might We Card - Light Version */}
-          {/* Sifat sticky sudah dihapus pada div di bawah ini */}
+          {/* How Might We Card - Light Version */}
           <div className="lg:col-span-5">
             <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-[2.5rem] p-10 text-white shadow-xl shadow-red-100 relative overflow-hidden group">
               <Sparkles className="absolute -bottom-4 -right-4 text-white/10 group-hover:rotate-12 transition-transform duration-700" size={160} />
               
               <div className="relative z-10">
+                
+                {/* --- AWAL GAMBAR --- */}
+                <div className="w-full h-48 mb-6 rounded-2xl overflow-hidden bg-white/10 flex items-center justify-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop" 
+                    alt="Ideation Concept Placeholder" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                {/* --- AKHIRGAMBAR --- */}
+
                 <p className="text-red-100 font-mono text-[9px] uppercase tracking-[0.3em] mb-6 font-bold opacity-80">The Challenge Statement</p>
                 <h2 className="text-2xl md:text-3xl font-black leading-tight mb-8">
                   "Bagaimana kita bisa menyediakan simulasi STEM yang interaktif tanpa memerlukan perangkat high-end?"
