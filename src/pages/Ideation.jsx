@@ -1,38 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// 1. Import komponen Navbar Anda di sini (sesuaikan path foldernya)
+import Navbar from '../components/Navbar'; 
 import { 
   Lightbulb, 
   Zap, 
   Rocket, 
   BrainCircuit, 
   Sparkles, 
-  ChevronRight, 
-  ArrowLeft 
+  ChevronRight 
 } from 'lucide-react';
 
 const Ideation = () => {
   return (
     <div className="min-h-screen bg-white text-slate-700 pb-20 selection:bg-red-100 selection:text-red-600">
       
-      {/* Refined Navbar */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center">
-          <Link 
-            to="/" 
-            className="group relative flex items-center gap-3 py-2 px-5 -ml-5 rounded-full transition-all duration-300 overflow-hidden active:scale-95"
-          >
-            <div className="absolute inset-0 bg-slate-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />
-            <div className="relative z-10 flex items-center gap-3">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 group-hover:bg-red-500 group-hover:shadow-lg group-hover:shadow-red-200 transition-all duration-300">
-                <ArrowLeft size={16} className="text-slate-500 group-hover:text-white transition-all duration-300 group-hover:-translate-x-1" />
-              </div>
-              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-slate-400 group-hover:text-slate-900 transition-colors duration-300">
-                Back to Dashboard
-              </span>
-            </div>
-          </Link>
-        </div>
-      </nav>
+      {/* 2. Panggil komponen Navbar di sini menggantikan nav lama */}
+      <Navbar />
 
       <div className="max-w-7xl mx-auto pt-32 px-6">
         
