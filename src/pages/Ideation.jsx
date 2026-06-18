@@ -40,7 +40,8 @@ const Ideation = () => {
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           
           {/* How Might We Card - Light Version */}
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
+          {/* Sifat sticky sudah dihapus pada div di bawah ini */}
+          <div className="lg:col-span-5">
             <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-[2.5rem] p-10 text-white shadow-xl shadow-red-100 relative overflow-hidden group">
               <Sparkles className="absolute -bottom-4 -right-4 text-white/10 group-hover:rotate-12 transition-transform duration-700" size={160} />
               
