@@ -13,6 +13,8 @@ import Health from './pages/Health';
 import Empathy from "./pages/Empathy";
 import Ideation from './pages/Ideation';
 import Prototyping from './pages/Prototyping';
+import Starburst from './pages/Starburst';
+import LeanCanvas from './pages/LeanCanvas';
 import Testing from './pages/Testing';
 import Reflection from './pages/Reflection';
 // ... import lainnya sampai 17 file jika ingin dipisah satu-satu
@@ -41,6 +43,8 @@ function App() {
             <Route path="/empathy" element={<Empathy />} />
             <Route path="/ideation" element={<Ideation />} />
             <Route path="/prototyping" element={<Prototyping />} />
+            <Route path="/starburst" element={<Starburst />} />
+            <Route path="/leancanvas" element={<LeanCanvas />} />
             <Route path="/testing" element={<Testing />} />
             <Route path="/reflection" element={<Reflection />} />
           </Routes>

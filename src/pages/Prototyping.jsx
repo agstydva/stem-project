@@ -1,24 +1,50 @@
 import React, { useState } from 'react';
-import { 
-  Layers, 
-  Cpu, 
-  Eye, 
-  Code, 
-  ArrowUpRight, 
-  CheckCircle2,
-  Maximize2,
-  X,
-  Download,
-  HelpCircle,
-  Activity,
-  FileText
-} from 'lucide-react';
-import Navbar from '../components/Navbar'; 
+import Navbar from '../components/Navbar';
+import { Maximize2, X, Globe, ExternalLink, RefreshCw, Layers } from 'lucide-react';
 
 const Prototyping = () => {
-  // State untuk lightbox modal gambar penuh
   const [activeImage, setActiveImage] = useState(null);
   const [modalTitle, setModalTitle] = useState('');
+  const [iframeKey, setIframeKey] = useState(0); // Untuk trigger reload iframe
+
+  const figmaScreenshots = [
+    {
+      id: 1,
+      title: "Halaman Login / Selamat Datang",
+      desc: "Antarmuka otentikasi bersih dengan latar belakang ruang kerja modern dan form minimalis.",
+      path: "/images/figma_3.png"
+    },
+    {
+      id: 2,
+      title: "Dashboard Kesehatan Kerja",
+      desc: "Panel utama memantau durasi duduk, tatap layar, hidrasi harian, serta log aktivitas K3.",
+      path: "/images/figma_2.png"
+    },
+    {
+      id: 3,
+      title: "Kalender Aktivitas Mingguan",
+      desc: "Kalender interaktif untuk melacak riwayat pemenuhan target produktivitas sehat mingguan.",
+      path: "/images/figma_1.png"
+    },
+    {
+      id: 4,
+      title: "Pengaturan Informasi Pribadi",
+      desc: "Form edit profil pengguna untuk menyesuaikan nama, tanggal lahir, dan preferensi akun.",
+      path: "/images/figma_4.png"
+    },
+    {
+      id: 5,
+      title: "Modal Istirahat Mata (20-20-20)",
+      desc: "Pop-up pintar pengingat berkala untuk mereduksi kelelahan mata dengan metode 20-20-20.",
+      path: "/images/figma_5.png"
+    },
+    {
+      id: 6,
+      title: "Desain Logo WorkWell Digital",
+      desc: "Identitas brand resmi untuk platform WorkWell Digital dengan tagline Stay Fit While You Sit.",
+      path: "/images/figma_6.png"
+    }
+  ];
 
   const openImageModal = (imagePath, title) => {
     setActiveImage(imagePath);
@@ -32,194 +58,163 @@ const Prototyping = () => {
     document.body.style.overflow = 'auto';
   };
 
+  const handleReload = () => {
+    setIframeKey(prev => prev + 1);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
-      
-      {/* Navbar */}
       <Navbar />
 
       {/* Header Halaman */}
-      <header className="relative pt-48 pb-20 px-6 border-b border-slate-100 bg-white w-full flex items-center overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-red-500/5 blur-[120px] pointer-events-none z-10" />
-        <div className="max-w-7xl mx-auto z-20 w-full">
+      <header className="relative pt-44 pb-16 px-6 border-b border-slate-100 bg-white w-full overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
+        
+        <div className="relative max-w-7xl mx-auto z-10 w-full">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="h-px w-12 bg-red-500"></span>
-              <span className="text-red-700 font-mono text-[11px] uppercase tracking-[0.5em] font-black">STAGE 3: PROTOTYPE BUILD</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse"></span>
+              <span className="text-red-600 font-mono text-xs font-bold tracking-[0.4em] uppercase">STAGE 3: FIGMA & DEVELOPMENT</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.95] tracking-tighter mb-8">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Prototyping.</span>
+            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[1.05] tracking-tight mb-8">
+              Purwarupa <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Prototype.</span>
             </h1>
             <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
-              Mentransformasikan konsep abstrak menjadi modul web fungsional berkecepatan tinggi yang adaptif untuk menjamin kenyamanan ergonomis dan pemantauan hidrasi secara real-time.
+              Menampilkan transformasi desain visual dari Figma mockups langsung menjadi produk aplikasi web fungsional yang siap dijalankan.
             </p>
           </div>
         </div>
       </header>
 
       {/* Konten Utama */}
-      <main className="max-w-7xl mx-auto py-24 px-6 relative space-y-28 z-10">
-
-
-        {/* Section 3: Starbursting & Lean Canvas */}
-        <section className="space-y-16">
-          
-          {/* Starbursting Card */}
-          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-red-50 text-red-600 rounded-lg"><HelpCircle size={16} /></div>
-                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">STARBURSTING METHOD</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
-                  Starbursting Model: Analisis Pertanyaan Kritis
-                </h2>
-              </div>
-              
-              <button 
-                onClick={() => openImageModal('/images/starburst.png', 'Starbursting Model')}
-                className="w-fit py-3.5 px-6 bg-red-600 hover:bg-red-700 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-red-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2.5"
-              >
-                <Maximize2 size={14} /> LIHAT STARBURST PENUH
-              </button>
+      <main className="max-w-7xl mx-auto py-20 px-6 space-y-24 relative z-10">
+        
+        {/* SECTION 1: FIGMA SCREENSHOTS GRID */}
+        <section className="space-y-12 max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
+            <div className="space-y-3">
+              <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest block">UI/UX INTERFACE DESIGN</span>
+              <h2 className="text-3xl font-black text-slate-950 tracking-tight">Figma Purwarupa (High-Fidelity)</h2>
+              <p className="text-sm text-slate-500 font-medium">Klik pada gambar untuk memperbesar tangkapan layar purwarupa Figma.</p>
             </div>
             
-            <p className="text-sm text-slate-500 leading-relaxed max-w-3xl mb-10 font-medium">
-              Pendekatan Starbursting memetakan aspek pertanyaan fundamental (Who, How, What, Where, Why) secara mendalam untuk menyempurnakan kegunaan dan validitas solusi EduStem.
-            </p>
-
-            <div 
-              onClick={() => openImageModal('/images/starburst.png', 'Starbursting Model')}
-              className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-inner bg-slate-50 p-4 flex items-center justify-center cursor-pointer group/starimg"
+            <a 
+              href="https://www.figma.com/design/apdx9OqOeE5eYxOtpS46ke/STEM-Prototype?node-id=0-1&t=Z3VMvQGYFVZ7sEtI-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-fit py-4 px-6 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2.5"
             >
-              <img 
-                src="/images/starburst.png" 
-                alt="Starbursting Model" 
-                className="w-full max-w-5xl h-auto rounded-xl object-contain shadow-md transition-transform duration-700 group-hover/starimg:scale-[1.01]"
-              />
-              <div className="absolute inset-0 bg-slate-950/0 group-hover/starimg:bg-slate-950/10 transition-colors duration-300 flex items-center justify-center">
-                <span className="opacity-0 group-hover/starimg:opacity-100 bg-white/90 backdrop-blur-md text-slate-900 font-mono text-[10px] font-bold tracking-widest px-5 py-3 rounded-xl border border-slate-100 shadow-lg transition-opacity duration-300 flex items-center gap-2">
-                  <Maximize2 size={12} /> KLIK UNTUK MEMPERBESAR
-                </span>
-              </div>
-            </div>
+              <ExternalLink size={14} /> BUKA DESAIN DI FIGMA
+            </a>
           </div>
 
-          {/* Lean Canvas Card */}
-          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-slate-950 text-white rounded-lg"><Activity size={16} /></div>
-                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">BUSINESS MODEL CANVAS</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
-                  Lean Canvas: Model Solusi Bisnis EduStem
-                </h2>
-              </div>
-              
-              <button 
-                onClick={() => openImageModal('/leancanvas.pdf', 'Lean Canvas Model')}
-                className="w-fit py-3.5 px-6 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-slate-900/10 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2.5"
+          {/* Grid Layout of Screenshots */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {figmaScreenshots.map((item, idx) => (
+              <div 
+                key={item.id} 
+                className="group bg-white rounded-3xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between"
               >
-                <Maximize2 size={14} /> LIHAT LEAN CANVAS PENUH
-              </button>
-            </div>
-            
-            <p className="text-sm text-slate-500 leading-relaxed max-w-3xl mb-10 font-medium">
-              Lean Canvas memetakan 9 aspek strategis (termasuk Problem, Solution, Unique Value Proposition, dan Cost Structure) untuk merancang kelayakan jangka panjang dan implementasi platform EduStem secara berkelanjutan.
-            </p>
-
-            <div 
-              onClick={() => openImageModal('/leancanvas.pdf', 'Lean Canvas Model')}
-              className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-inner bg-slate-100 p-8 flex flex-col items-center justify-center cursor-pointer group/leanimg min-h-[300px]"
-            >
-              <FileText size={64} className="text-slate-400 group-hover/leanimg:text-red-600 transition-colors duration-300 mb-4" />
-              <span className="text-sm font-bold text-slate-700">Dokumen Lean Canvas (PDF)</span>
-              <span className="text-xs text-slate-400 mt-1">Klik untuk membuka peninjau dokumen</span>
-
-              <div className="absolute inset-0 bg-slate-950/0 group-hover/leanimg:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
-                <span className="opacity-0 group-hover/leanimg:opacity-100 bg-white/90 backdrop-blur-md text-slate-900 font-mono text-[10px] font-bold tracking-widest px-5 py-3 rounded-xl border border-slate-100 shadow-lg transition-opacity duration-300 flex items-center gap-2">
-                  <Maximize2 size={12} /> BUKA PENINJAU PDF
-                </span>
+                <div>
+                  <div 
+                    onClick={() => openImageModal(item.path, item.title)}
+                    className="relative w-full h-56 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
+                  >
+                    <img 
+                      src={item.path} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-750 group-hover/imgcontainer:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                        <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
+                      </span>
+                    </div>
+                  </div>
+                  <h3 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                    {item.desc}
+                  </p>
+                </div>
+                <div className="mt-4 pt-4 border-t border-slate-50 text-[9px] font-mono font-bold text-slate-400">
+                  FIGMA BOARD MOCKUP #{item.id}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-
         </section>
 
+        {/* SECTION 2: LIVE WEB APP EMBED */}
+        <section className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group max-w-6xl mx-auto space-y-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">LIVE DEMO IMPLEMENTATION</span>
+              <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
+                WorkWell: Aplikasi Web Hasil Akhir
+              </h2>
+            </div>
 
+            <div className="flex items-center gap-3">
+              <button 
+                onClick={handleReload}
+                className="p-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-xs font-mono font-bold px-4 py-3"
+                title="Reload App"
+              >
+                <RefreshCw size={14} /> RELOAD
+              </button>
+              <a 
+                href="https://workwell-stem.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-5 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2"
+              >
+                <Globe size={14} /> BUKA DI TAB BARU
+              </a>
+            </div>
+          </div>
+
+          <p className="text-sm text-slate-500 leading-relaxed font-medium">
+            Di bawah ini adalah aplikasi web <strong>WorkWell</strong> yang telah di-deploy ke Vercel secara langsung. Anda dapat berinteraksi penuh dengan dashboard kesehatan kognitif-fisik, mengatur timer screen-time, mencatat hidrasi air, dan menggunakan panduan peregangan dinamis dari dalam frame di bawah ini.
+          </p>
+
+          <div className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-2xl bg-slate-950 h-[650px]">
+            <iframe 
+              key={iframeKey}
+              src="https://workwell-stem.vercel.app/" 
+              title="WorkWell Live Web Application Embed"
+              className="w-full h-full border-none bg-white"
+              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+            />
+          </div>
+        </section>
 
       </main>
 
-      {/* Lightbox Modal Popup */}
+      {/* Lightbox Modal */}
       {activeImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
-          {/* Backdrop */}
           <div 
             onClick={closeImageModal} 
-            className="absolute inset-0 bg-slate-900/85 backdrop-blur-md transition-opacity duration-300"
+            className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"
           />
-          
-          {/* Modal Container */}
-          <div className="relative bg-white w-full max-w-6xl h-[85vh] rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col z-10 border border-slate-100">
-            
-            {/* Modal Header */}
-            <div className="px-6 py-4 border-b border-slate-100 bg-white flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
-                <h3 className="font-black text-slate-950 tracking-tight text-sm md:text-base leading-none">
-                  {modalTitle}
-                </h3>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                {/* Download Button */}
-                <a 
-                  href={activeImage} 
-                  download 
-                  className="p-2.5 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-950 rounded-xl transition-all border border-slate-200/50 flex items-center gap-2 text-xs font-mono font-bold"
-                  title="Unduh Gambar"
-                >
-                  <Download size={16} /> <span className="hidden sm:inline">UNDUH</span>
-                </a>
-                
-                {/* Close Button */}
-                <button 
-                  onClick={closeImageModal}
-                  className="p-2.5 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 rounded-xl transition-all border border-red-100/50"
-                  title="Tutup Gambar"
-                >
-                  <X size={16} />
-                </button>
-              </div>
-            </div>
-            
-            {/* Modal Content */}
-            <div className="flex-1 bg-slate-900 overflow-auto p-6 flex items-center justify-center">
-              {activeImage.endsWith('.pdf') ? (
-                <iframe 
-                  src={`${activeImage}#toolbar=0`} 
-                  title={modalTitle} 
-                  className="w-full h-full border-none bg-white rounded-xl"
-                />
-              ) : (
-                <img 
-                  src={activeImage} 
-                  alt={modalTitle} 
-                  className="max-w-none w-full h-auto object-contain" 
-                  onError={(e) => {
-                    e.target.src = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80";
-                  }}
-                />
-              )}
-            </div>
-            
+          <div className="relative bg-white w-full max-w-5xl h-[80vh] rounded-[2.5rem] overflow-hidden shadow-2xl z-10 border border-slate-100 p-4 flex items-center justify-center">
+            <button 
+              onClick={closeImageModal}
+              className="absolute top-6 right-6 p-3 bg-slate-900 hover:bg-slate-800 text-white rounded-full transition-all hover:scale-105 z-20"
+            >
+              <X size={18} />
+            </button>
+            <img 
+              src={activeImage} 
+              alt={modalTitle} 
+              className="w-full h-full object-contain rounded-xl"
+            />
           </div>
         </div>
       )}
-
     </div>
   );
 };
