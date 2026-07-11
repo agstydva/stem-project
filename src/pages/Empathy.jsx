@@ -19,17 +19,31 @@ const Empathy = () => {
   const [activePdf, setActivePdf] = useState(null);
   const [pdfTitle, setPdfTitle] = useState('');
 
+  // State untuk mengontrol image lightbox modal
+  const [activeImage, setActiveImage] = useState(null);
+  const [imageTitle, setImageTitle] = useState('');
+
   const openPdfModal = (pdfPath, title) => {
     setActivePdf(pdfPath);
     setPdfTitle(title);
-    // Mencegah scroll pada body saat modal terbuka
     document.body.style.overflow = 'hidden';
   };
 
   const closePdfModal = () => {
     setActivePdf(null);
     setPdfTitle('');
-    // Mengembalikan scroll pada body
+    document.body.style.overflow = 'auto';
+  };
+
+  const openImageModal = (imagePath, title) => {
+    setActiveImage(imagePath);
+    setImageTitle(title);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeImageModal = () => {
+    setActiveImage(null);
+    setImageTitle('');
     document.body.style.overflow = 'auto';
   };
 
@@ -209,6 +223,82 @@ const Empathy = () => {
           </div>
         </section>
 
+        {/* Visualisasi Data Kuesioner (Survei) */}
+        <section className="space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest">QUESTIONNAIRE DATA DISTRIBUTION</span>
+            <h3 className="text-3xl font-black text-slate-950 tracking-tight">Grafik Distribusi Data Kuesioner</h3>
+            <p className="text-sm text-slate-500 font-medium">Visualisasi statistik respon dari 22 koresponden mengenai kondisi kerja digital.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                id: "chart_3",
+                title: "Status Responden",
+                desc: "Mayoritas responden berstatus sebagai mahasiswa Magang/PKL (72.7%), diikuti karyawan tetap/kontrak.",
+                path: "/images/chart_3.png"
+              },
+              {
+                id: "chart_4",
+                title: "Jenis Instansi / Tempat Kerja",
+                desc: "Distribusi tempat kerja mencakup sektor Swasta (36.4%), BUMN (22.7%), Instansi Pemerintah (22.7%), dsb.",
+                path: "/images/chart_4.png"
+              },
+              {
+                id: "chart_5",
+                title: "Rata-rata Jam Menatap Layar",
+                desc: "Hampir setengah responden (45.5%) menatap layar 5-8 jam sehari, sementara 27.3% menatap layar > 8 jam.",
+                path: "/images/chart_5.png"
+              },
+              {
+                id: "chart_6",
+                title: "Tingkat Kecemasan/Stres Kerja",
+                desc: "Skala kecemasan/stres responden cenderung tinggi dengan mayoritas berada pada skala 4 (31.8%) dan skala 5 (22.7%).",
+                path: "/images/chart_6.png"
+              },
+              {
+                id: "chart_7",
+                title: "Kekurangan Waktu Istirahat Mental",
+                desc: "Tingkat kekurangan waktu istirahat sangat signifikan, didominasi oleh skala tertinggi 5 (31.8%) dan skala 4 (27.3%).",
+                path: "/images/chart_7.png"
+              }
+            ].map((chart, idx) => {
+              const colSpanClass = idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3';
+              return (
+                <div 
+                  key={chart.id} 
+                  className={`group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between ${colSpanClass}`}
+                >
+                  <div>
+                    <div 
+                      onClick={() => openImageModal(chart.path, chart.title)}
+                      className="relative w-full h-44 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
+                    >
+                      <img 
+                        src={chart.path} 
+                        alt={chart.title} 
+                        className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/imgcontainer:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
+                        <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                          <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
+                        </span>
+                      </div>
+                    </div>
+                    <h4 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
+                      {chart.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                      {chart.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
         {/* Downloadable / Viewable PDFs */}
         <section className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -311,6 +401,28 @@ const Empathy = () => {
               />
             </div>
             
+          </div>
+        </div>
+      {/* Image Lightbox Modal Popup */}
+      {activeImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
+          <div 
+            onClick={closeImageModal} 
+            className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300"
+          />
+          <div className="relative bg-white w-full max-w-4xl h-[75vh] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col z-10 border border-slate-100 p-4 justify-center items-center">
+            <button 
+              onClick={closeImageModal}
+              className="absolute top-6 right-6 p-2.5 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 rounded-xl transition-all border border-red-100/50 z-20"
+              title="Tutup Modal"
+            >
+              <X size={16} />
+            </button>
+            <img 
+              src={activeImage} 
+              alt={imageTitle} 
+              className="w-full h-full object-contain rounded-xl"
+            />
           </div>
         </div>
       )}
