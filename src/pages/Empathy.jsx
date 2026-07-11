@@ -293,12 +293,20 @@ const Empathy = () => {
                 title: "Kebijakan / Fasilitas Kesehatan Mental",
                 desc: "Setengah responden (50%) menyatakan fasilitas perusahaan sudah sangat baik, namun 40.9% menilai masih perlu ditingkatkan.",
                 path: "/images/chart_12.png"
+              },
+              {
+                id: "chart_13",
+                title: "Efektivitas Aplikasi/Dashboard Pengingat Kesehatan",
+                desc: "Sebagian besar responden (72.7%) meyakini bahwa aplikasi pengingat kesehatan fisik dan mental akan efektif membantu kesejahteraan mereka.",
+                path: "/images/chart_13.png"
               }
-            ].map((chart) => (
-              <div 
-                key={chart.id} 
-                className="group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between"
-              >
+            ].map((chart, idx) => {
+              const colSpanClass = idx === 10 ? 'lg:col-span-2' : '';
+              return (
+                <div 
+                  key={chart.id} 
+                  className={`group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between ${colSpanClass}`}
+                >
                 <div>
                   <div 
                     onClick={() => openImageModal(chart.path, chart.title)}
@@ -323,7 +331,8 @@ const Empathy = () => {
                   </p>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </section>
 
