@@ -231,7 +231,7 @@ const Empathy = () => {
             <p className="text-sm text-slate-500 font-medium">Visualisasi statistik respon dari 22 koresponden mengenai kondisi kerja digital.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
               {
                 id: "chart_3",
@@ -262,40 +262,67 @@ const Empathy = () => {
                 title: "Kekurangan Waktu Istirahat Mental",
                 desc: "Tingkat kekurangan waktu istirahat sangat signifikan, didominasi oleh skala tertinggi 5 (31.8%) dan skala 4 (27.3%).",
                 path: "/images/chart_7.png"
+              },
+              {
+                id: "chart_8",
+                title: "Kehilangan Motivasi / Kelelahan Emosional (Burnout)",
+                desc: "Responden yang merasakan hilangnya motivasi/burnout cenderung tinggi, terpusat pada skala 5 (27.3%) dan skala 3 (27.3%).",
+                path: "/images/chart_8.png"
+              },
+              {
+                id: "chart_9",
+                title: "Keluhan Fisik Saat Bekerja",
+                desc: "Sebanyak 36.4% responden sangat sering merasakan sakit punggung, leher kaku, atau mata perih (skala 4) saat bekerja.",
+                path: "/images/chart_9.png"
+              },
+              {
+                id: "chart_10",
+                title: "Kerutinan Peregangan Singkat",
+                desc: "Kepatuhan melakukan peregangan otot berkala masih minim, dengan mayoritas berada pada skala rendah 4 (31.8%) dan skala 2 (22.7%).",
+                path: "/images/chart_10.png"
+              },
+              {
+                id: "chart_11",
+                title: "Melewatkan Waktu Makan / Minum",
+                desc: "Mayoritas mutlak responden (59.1%) sering kali melewatkan makan atau minum secara teratur akibat kesibukan kerja (skala 3).",
+                path: "/images/chart_11.png"
+              },
+              {
+                id: "chart_12",
+                title: "Kebijakan / Fasilitas Kesehatan Mental",
+                desc: "Setengah responden (50%) menyatakan fasilitas perusahaan sudah sangat baik, namun 40.9% menilai masih perlu ditingkatkan.",
+                path: "/images/chart_12.png"
               }
-            ].map((chart, idx) => {
-              const colSpanClass = idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3';
-              return (
-                <div 
-                  key={chart.id} 
-                  className={`group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between ${colSpanClass}`}
-                >
-                  <div>
-                    <div 
-                      onClick={() => openImageModal(chart.path, chart.title)}
-                      className="relative w-full h-44 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
-                    >
-                      <img 
-                        src={chart.path} 
-                        alt={chart.title} 
-                        className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/imgcontainer:scale-[1.03]"
-                      />
-                      <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
-                        <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
-                          <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
-                        </span>
-                      </div>
+            ].map((chart) => (
+              <div 
+                key={chart.id} 
+                className="group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between"
+              >
+                <div>
+                  <div 
+                    onClick={() => openImageModal(chart.path, chart.title)}
+                    className="relative w-full h-48 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
+                  >
+                    <img 
+                      src={chart.path} 
+                      alt={chart.title} 
+                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/imgcontainer:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                        <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
+                      </span>
                     </div>
-                    <h4 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
-                      {chart.title}
-                    </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                      {chart.desc}
-                    </p>
                   </div>
+                  <h4 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
+                    {chart.title}
+                  </h4>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                    {chart.desc}
+                  </p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </section>
 
