@@ -398,6 +398,24 @@ const Empathy = () => {
                   </span>
                 </div>
                 
+                {/* Interactive Mini PDF Preview */}
+                <div 
+                  onClick={() => openPdfModal('/survei.pdf', 'Laporan Hasil Survei Kesehatan & Ergonomi')}
+                  className="relative w-full h-48 bg-slate-50 rounded-2xl mb-6 overflow-hidden border border-slate-100 shadow-inner cursor-pointer group/preview"
+                >
+                  <iframe 
+                    src="/survei.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                    title="Survei PDF Preview"
+                    className="w-full h-full border-none select-none pointer-events-none"
+                    scrolling="no"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/0 group-hover/preview:bg-slate-950/[0.03] transition-colors duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover/preview:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                      <Maximize2 size={10} /> PRATINJAU DOKUMEN
+                    </span>
+                  </div>
+                </div>
+
                 <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight group-hover:text-red-600 transition-colors duration-300">
                   Dokumen Hasil Survei Kuesioner
                 </h4>
@@ -427,6 +445,24 @@ const Empathy = () => {
                   <span className="bg-slate-100 text-slate-700 font-mono text-[9px] font-bold px-3 py-1.5 rounded-full border border-slate-200/50">
                     EMPATHY MATRIX PDF
                   </span>
+                </div>
+
+                {/* Interactive Mini PDF Preview */}
+                <div 
+                  onClick={() => openPdfModal('/matrix.pdf', 'Matrix Penelitian & Empati')}
+                  className="relative w-full h-48 bg-slate-50 rounded-2xl mb-6 overflow-hidden border border-slate-100 shadow-inner cursor-pointer group/preview"
+                >
+                  <iframe 
+                    src="/matrix.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                    title="Matrix PDF Preview"
+                    className="w-full h-full border-none select-none pointer-events-none"
+                    scrolling="no"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/0 group-hover/preview:bg-slate-950/[0.03] transition-colors duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover/preview:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                      <Maximize2 size={10} /> PRATINJAU DOKUMEN
+                    </span>
+                  </div>
                 </div>
                 
                 <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight group-hover:text-red-600 transition-colors duration-300">
