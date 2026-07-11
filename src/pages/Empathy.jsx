@@ -301,38 +301,53 @@ const Empathy = () => {
                 path: "/images/chart_13.png"
               }
             ].map((chart, idx) => {
-              const colSpanClass = idx === 10 ? 'lg:col-span-2' : '';
-              return (
+              const isLast = idx === 10;
+              const cardContent = (
                 <div 
-                  key={chart.id} 
-                  className={`group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between ${colSpanClass}`}
+                  className="group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between w-full"
                 >
-                <div>
-                  <div 
-                    onClick={() => openImageModal(chart.path, chart.title)}
-                    className="relative w-full h-48 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
-                  >
-                    <img 
-                      src={chart.path} 
-                      alt={chart.title} 
-                      className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/imgcontainer:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
-                      <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
-                        <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
-                      </span>
+                  <div>
+                    <div 
+                      onClick={() => openImageModal(chart.path, chart.title)}
+                      className="relative w-full h-48 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
+                    >
+                      <img 
+                        src={chart.path} 
+                        alt={chart.title} 
+                        className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/imgcontainer:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
+                        <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                          <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
+                        </span>
+                      </div>
+                    </div>
+                    <h4 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
+                      {chart.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                      {chart.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+
+              if (isLast) {
+                return (
+                  <div key={chart.id} className="lg:col-span-2 flex justify-center w-full">
+                    <div className="w-full lg:max-w-[calc(50%-1rem)] flex">
+                      {cardContent}
                     </div>
                   </div>
-                  <h4 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
-                    {chart.title}
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                    {chart.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+                );
+              }
+
+              return (
+                <React.Fragment key={chart.id}>
+                  {cardContent}
+                </React.Fragment>
+              );
+            })}
           </div>
         </section>
 
