@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar'; 
-import { BookOpen, HelpCircle, FileText, CheckCircle2, Play, Clock } from 'lucide-react';
+import { BookOpen, HelpCircle, FileText, CheckCircle2, Play, Clock, Globe, Heart, MessageSquare, Layers, Award } from 'lucide-react';
 
 const Reflection = () => {
   // State untuk mengontrol apakah video sedang diputar (swap cover dengan iframe)
@@ -10,27 +10,42 @@ const Reflection = () => {
     {
       num: "01",
       question: "Mengapa SDGs PBB relevan dengan inovator, penemu, dan desainer abad ke-21?",
-      answer: "SDGs PBB memberikan arah bagi inovator dan desainer untuk menciptakan solusi yang tidak hanya memanfaatkan teknologi, tetapi juga memberikan dampak positif bagi masyarakat. Dalam proyek ini, saya mempelajari bahwa inovasi harus berangkat dari permasalahan nyata. Oleh karena itu, saya memilih menggabungkan SDG 3.4 dan SDG 4.4 melalui pengembangan aplikasi web WorkWell, yang bertujuan mendukung kesehatan pekerja digital sekaligus meningkatkan kesiapan mereka menghadapi dunia kerja berbasis teknologi. Dengan demikian, teknologi yang dikembangkan menjadi lebih bermanfaat, berkelanjutan, dan berorientasi pada kebutuhan pengguna."
+      answer: "SDGs PBB memberikan arah bagi inovator dan desainer untuk menciptakan solusi yang tidak hanya memanfaatkan teknologi, tetapi juga memberikan dampak positif bagi masyarakat. Dalam proyek ini, saya mempelajari bahwa inovasi harus berangkat dari permasalahan nyata. Oleh karena itu, saya memilih menggabungkan SDG 3.4 dan SDG 4.4 melalui pengembangan aplikasi web WorkWell, yang bertujuan mendukung kesehatan pekerja digital sekaligus meningkatkan kesiapan mereka menghadapi dunia kerja berbasis teknologi. Dengan demikian, teknologi yang dikembangkan menjadi lebih bermanfaat, berkelanjutan, dan berorientasi pada kebutuhan pengguna.",
+      icon: <Globe size={18} />,
+      accentClass: "hover:border-emerald-100 hover:shadow-emerald-500/5",
+      numClass: "bg-emerald-50 text-emerald-600 border-emerald-100/50 group-hover:bg-emerald-600 group-hover:text-white"
     },
     {
       num: "02",
       question: "Strategi mana yang menurut Anda paling membantu dan mengapa?",
-      answer: "Strategi yang paling membantu adalah Design Thinking, khususnya tahap Empathize. Melalui observasi, wawancara dengan mahasiswa magang dan karyawan PT Biro Klasifikasi Indonesia, serta penyebaran kuesioner, saya memperoleh pemahaman yang lebih mendalam mengenai permasalahan yang benar-benar dialami pengguna. Pendekatan ini membuat solusi yang saya bangun didasarkan pada data dan kebutuhan nyata, bukan hanya asumsi pribadi."
+      answer: "Strategi yang paling membantu adalah Design Thinking, khususnya tahap Empathize. Melalui observasi, wawancara dengan mahasiswa magang dan karyawan PT Biro Klasifikasi Indonesia, serta penyebaran kuesioner, saya memperoleh pemahaman yang lebih mendalam mengenai permasalahan yang benar-benar dialami pengguna. Pendekatan ini membuat solusi yang saya bangun didasarkan pada data dan kebutuhan nyata, bukan hanya asumsi pribadi.",
+      icon: <Heart size={18} />,
+      accentClass: "hover:border-red-100 hover:shadow-red-500/5",
+      numClass: "bg-red-50 text-red-600 border-red-100/50 group-hover:bg-red-600 group-hover:text-white"
     },
     {
       num: "03",
       question: "Mengapa menerima umpan balik (feedback) begitu penting dalam desain? Siapa yang akan Anda minta lebih banyak umpan balik? Mengapa?",
-      answer: "Umpan balik sangat penting karena membantu memastikan bahwa solusi yang dikembangkan benar-benar sesuai dengan kebutuhan pengguna. Selama proses pengembangan, masukan dari hasil wawancara dan survei membantu saya menentukan fitur utama seperti Screen Time Monitoring, Hydration Tracker, Stretching Guide, dan Mental Health Pulse. Ke depannya, saya ingin memperoleh lebih banyak umpan balik dari mahasiswa magang, pekerja digital, tim Human Resources (HR), serta praktisi kesehatan kerja. Mereka merupakan pengguna maupun pihak yang memahami kebutuhan kesehatan dan produktivitas di lingkungan kerja sehingga dapat memberikan masukan yang lebih komprehensif."
+      answer: "Umpan balik sangat penting karena membantu memastikan bahwa solusi yang dikembangkan benar-benar sesuai dengan kebutuhan pengguna. Selama proses pengembangan, masukan dari hasil wawancara dan survei membantu saya menentukan fitur utama seperti Screen Time Monitoring, Hydration Tracker, Stretching Guide, dan Mental Health Pulse. Ke depannya, saya ingin memperoleh lebih banyak umpan balik dari mahasiswa magang, pekerja digital, tim Human Resources (HR), serta praktisi kesehatan kerja. Mereka merupakan pengguna maupun pihak yang memahami kebutuhan kesehatan dan produktivitas di lingkungan kerja sehingga dapat memberikan masukan yang lebih komprehensif.",
+      icon: <MessageSquare size={18} />,
+      accentClass: "hover:border-blue-100 hover:shadow-blue-500/5",
+      numClass: "bg-blue-50 text-blue-600 border-blue-100/50 group-hover:bg-blue-600 group-hover:text-white"
     },
     {
       num: "04",
       question: "Tahap Design Thinking mana yang menurut Anda paling menantang? Mengapa? Tahap mana yang paling berkesan? Mengapa?",
-      answer: "Tahap yang paling menantang adalah Define, karena saya harus menyaring berbagai hasil observasi, wawancara, dan survei menjadi satu permasalahan utama yang benar-benar relevan untuk diselesaikan. Saya harus memastikan bahwa solusi yang dikembangkan memiliki fokus yang jelas.\nSementara itu, tahap yang paling berkesan adalah Prototype dan Test. Pada tahap ini saya mengubah ide menjadi prototype di Figma, kemudian mengimplementasikannya menjadi aplikasi web WorkWell. Saya merasa bangga karena solusi yang awalnya hanya berupa konsep akhirnya dapat diwujudkan menjadi aplikasi yang dapat digunakan dan memperoleh respons positif dari calon pengguna."
+      answer: "Tahap yang paling menantang adalah Define, karena saya harus menyaring berbagai hasil observasi, wawancara, dan survei menjadi satu permasalahan utama yang benar-benar relevan untuk diselesaikan. Saya harus memastikan bahwa solusi yang dikembangkan memiliki fokus yang jelas.\nSementara itu, tahap yang paling berkesan adalah Prototype dan Test. Pada tahap ini saya mengubah ide menjadi prototype di Figma, kemudian mengimplementasikannya menjadi aplikasi web WorkWell. Saya merasa bangga karena solusi yang awalnya hanya berupa konsep akhirnya dapat diwujudkan menjadi aplikasi yang dapat digunakan dan memperoleh respons positif dari calon pengguna.",
+      icon: <Layers size={18} />,
+      accentClass: "hover:border-amber-100 hover:shadow-amber-500/5",
+      numClass: "bg-amber-50 text-amber-600 border-amber-100/50 group-hover:bg-amber-600 group-hover:text-white"
     },
     {
       num: "05",
       question: "Apa keterampilan/ide/konsep paling signifikan yang Anda peroleh semester ini? Jelaskan mengapa!",
-      answer: "Keterampilan yang paling signifikan yang saya peroleh adalah Design Thinking, User-Centered Design, dan kemampuan mengembangkan solusi berbasis web menggunakan teknologi modern. Saya belajar bahwa proses inovasi tidak dimulai dari membuat produk, tetapi dari memahami kebutuhan pengguna melalui riset, mengumpulkan bukti, melakukan validasi, kemudian mengembangkan solusi yang tepat. Selain itu, saya juga memperoleh pengalaman menggunakan Figma, pengembangan aplikasi web, serta memanfaatkan Artificial Intelligence sebagai pendukung brainstorming dan pengembangan fitur. Pengalaman ini meningkatkan kemampuan saya dalam memecahkan masalah secara sistematis sekaligus mempersiapkan diri menghadapi tantangan dunia kerja di bidang teknologi."
+      answer: "Keterampilan yang paling signifikan yang saya peroleh adalah Design Thinking, User-Centered Design, dan kemampuan mengembangkan solusi berbasis web menggunakan teknologi modern. Saya belajar bahwa proses inovasi tidak dimulai dari membuat produk, tetapi dari memahami kebutuhan pengguna melalui riset, mengumpulkan bukti, melakukan validasi, kemudian mengembangkan solusi yang tepat. Selain itu, saya juga memperoleh pengalaman menggunakan Figma, pengembangan aplikasi web, serta memanfaatkan Artificial Intelligence sebagai pendukung brainstorming dan pengembangan fitur. Pengalaman ini meningkatkan kemampuan saya dalam memecahkan masalah secara sistematis sekaligus mempersiapkan diri menghadapi tantangan dunia kerja di bidang teknologi.",
+      icon: <Award size={18} />,
+      accentClass: "hover:border-purple-100 hover:shadow-purple-500/5",
+      numClass: "bg-purple-50 text-purple-600 border-purple-100/50 group-hover:bg-purple-600 group-hover:text-white"
     }
   ];
 
@@ -143,27 +158,35 @@ const Reflection = () => {
             <p className="text-sm text-slate-500 font-medium">Uraian kritis mengenai integrasi tujuan global PBB dengan implementasi rekayasa digital.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {reflectionData.map((item, idx) => (
               <div 
                 key={idx} 
-                className={`group relative bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-100 transition-all duration-500 overflow-hidden ${
-                  idx === 4 ? 'md:col-span-2' : ''
-                }`}
+                className={`group relative bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-100/80 shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between ${
+                  item.accentClass
+                } ${idx === 4 ? 'md:col-span-2' : ''}`}
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/[0.01] rounded-full blur-[30px] pointer-events-none" />
+                {/* Background glowing orb indicator */}
+                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-slate-950/[0.01] to-transparent rounded-full blur-2xl pointer-events-none" />
                 
-                <div className="flex gap-4 items-start">
-                  {/* Number Badge */}
-                  <div className="w-10 h-10 bg-red-50 text-red-600 rounded-xl flex items-center justify-center font-mono font-black text-sm border border-red-100/50 flex-shrink-0 group-hover:bg-red-600 group-hover:text-white transition-colors duration-500">
-                    {item.num}
+                <div className="space-y-6">
+                  {/* Top bar: number and custom theme icon */}
+                  <div className="flex items-center justify-between">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-black text-base border transition-all duration-500 ${item.numClass}`}>
+                      {item.num}
+                    </div>
+                    <div className="w-9 h-9 bg-slate-50 text-slate-400 group-hover:text-slate-900 rounded-xl flex items-center justify-center border border-slate-100 transition-colors duration-300">
+                      {item.icon}
+                    </div>
                   </div>
                   
-                  <div className="space-y-3">
-                    <h3 className="text-sm md:text-base font-black text-slate-950 leading-snug tracking-tight group-hover:text-red-600 transition-colors duration-300">
-                      {item.question}
-                    </h3>
-                    <div className="h-px bg-slate-100 w-16" />
+                  {/* Question */}
+                  <h3 className="text-lg font-black text-slate-950 leading-snug tracking-tight group-hover:text-slate-900 transition-colors duration-300">
+                    {item.question}
+                  </h3>
+                  
+                  {/* Answer Box */}
+                  <div className="relative bg-slate-50/60 group-hover:bg-slate-50/90 p-5 rounded-2xl border-l-4 border-slate-200 group-hover:border-slate-300 transition-all duration-500">
                     <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-normal whitespace-pre-line">
                       {item.answer}
                     </p>
