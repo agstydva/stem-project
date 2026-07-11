@@ -12,7 +12,10 @@ import {
   ArrowUpRight,
   X,
   Download,
-  Maximize2
+  Maximize2,
+  Monitor,
+  Coffee,
+  Brain
 } from 'lucide-react';
 
 const Empathy = () => {
@@ -228,19 +231,83 @@ const Empathy = () => {
         <section className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest">KEY DATA INSIGHTS</span>
-            <h3 className="text-3xl font-black text-slate-950 tracking-tight">Hasil Temuan Penelitian</h3>
+            <h3 className="text-3xl font-black text-slate-950 tracking-tight">Hasil Temuan Penelitian Utama</h3>
+            <p className="text-sm text-slate-500 font-medium">Data empiris kuantitatif yang dirangkum dari respon koresponden dan menjadi dasar pengembangan solusi kami.</p>
           </div>
           
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { label: "Stres Kerja Sedang-Tinggi", value: "77.2%", icon: <AlertTriangle size={18} />, color: "bg-red-600" },
-              { label: "Responden Mengalami Keluhan Fisik", value: "77.3%", icon: <Activity size={18} />, color: "bg-orange-600" },
-              { label: "Mendukung Dashboard Solusi Preventif", value: "72.7%", icon: <Eye size={18} />, color: "bg-emerald-600" }
+              { 
+                value: "72.8%", 
+                title: "Paparan Layar Tinggi", 
+                desc: "Responden menghabiskan waktu 5 hingga 8 jam di depan layar setiap hari.", 
+                icon: <Monitor size={20} className="stroke-[1.5]" />, 
+                theme: "bg-blue-50 text-blue-600 border-blue-100",
+                textGradient: "from-blue-600 to-indigo-600"
+              },
+              { 
+                value: "77.2%", 
+                title: "Tingkat Stres Tinggi", 
+                desc: "Responden mengalami tingkat stres sedang hingga tinggi akibat tekanan tugas.", 
+                icon: <Brain size={20} className="stroke-[1.5]" />, 
+                theme: "bg-red-50 text-red-600 border-red-100",
+                textGradient: "from-red-600 to-rose-600"
+              },
+              { 
+                value: "77.3%", 
+                title: "Keluhan Fisik Akut", 
+                desc: "Responden sering mengeluhkan sakit punggung, leher kaku, atau mata perih.", 
+                icon: <Activity size={20} className="stroke-[1.5]" />, 
+                theme: "bg-orange-50 text-orange-600 border-orange-100",
+                textGradient: "from-orange-600 to-amber-600"
+              },
+              { 
+                value: "45.4%", 
+                title: "Jarang Peregangan", 
+                desc: "Responden sangat jarang melakukan peregangan fisik secara rutin saat bekerja.", 
+                icon: <Heart size={20} className="stroke-[1.5]" />, 
+                theme: "bg-pink-50 text-pink-600 border-pink-100",
+                textGradient: "from-pink-600 to-rose-600"
+              },
+              { 
+                value: "40.9%", 
+                title: "Mengabaikan Nutrisi", 
+                desc: "Responden sering melewatkan waktu makan atau minum akibat terlalu fokus bekerja.", 
+                icon: <Coffee size={20} className="stroke-[1.5]" />, 
+                theme: "bg-amber-50 text-amber-800 border-amber-100",
+                textGradient: "from-amber-700 to-amber-900"
+              },
+              { 
+                value: "72.7%", 
+                title: "Butuh Solusi Preventif", 
+                desc: "Responden meyakini dashboard kesehatan digital akan sangat membantu aktivitas mereka.", 
+                icon: <Target size={20} className="stroke-[1.5]" />, 
+                theme: "bg-emerald-50 text-emerald-600 border-emerald-100",
+                textGradient: "from-emerald-600 to-teal-600"
+              }
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300">
-                <div className={`w-10 h-10 ${stat.color} text-white rounded-xl flex items-center justify-center mb-6`}>{stat.icon}</div>
-                <p className="text-4xl font-black text-slate-950 tracking-tight mb-2">{stat.value}</p>
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider leading-relaxed">{stat.label}</p>
+              <div 
+                key={idx} 
+                className="group relative bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className={`w-11 h-11 ${stat.theme} rounded-xl flex items-center justify-center border shadow-sm`}>
+                      {stat.icon}
+                    </div>
+                    <span className="text-[9px] font-mono font-bold text-slate-400">METRIC #{idx + 1}</span>
+                  </div>
+                  
+                  <p className={`text-4xl font-black bg-gradient-to-r ${stat.textGradient} bg-clip-text text-transparent tracking-tight mb-2`}>
+                    {stat.value}
+                  </p>
+                  <h4 className="text-sm font-black text-slate-900 mb-2 tracking-tight group-hover:text-red-600 transition-colors duration-300">
+                    {stat.title}
+                  </h4>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                    {stat.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
