@@ -5,7 +5,6 @@ import { Maximize2, X, Globe, ExternalLink, RefreshCw, Layers } from 'lucide-rea
 const Prototyping = () => {
   const [activeImage, setActiveImage] = useState(null);
   const [modalTitle, setModalTitle] = useState('');
-  const [port, setPort] = useState('5174'); // Port default aplikasi WorkWell
   const [iframeKey, setIframeKey] = useState(0); // Untuk trigger reload iframe
 
   const figmaScreenshots = [
@@ -151,42 +150,39 @@ const Prototyping = () => {
         <section className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group max-w-6xl mx-auto space-y-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">FINISHED APPLICATION SHOWCASE</span>
+              <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">LIVE DEMO IMPLEMENTATION</span>
               <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
                 WorkWell: Aplikasi Web Hasil Akhir
               </h2>
             </div>
 
-            {/* Custom Local Host controls */}
-            <div className="flex flex-wrap items-center gap-3 bg-slate-50 p-2.5 rounded-2xl border border-slate-100">
-              <span className="text-xs font-mono font-bold text-slate-500 flex items-center gap-1.5 pl-2">
-                <Globe size={14} className="text-slate-400" /> http://localhost:
-              </span>
-              <input
-                type="text"
-                value={port}
-                onChange={(e) => setPort(e.target.value)}
-                placeholder="5174"
-                className="w-16 px-2.5 py-1 text-center font-mono text-xs font-bold text-slate-900 bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-red-500"
-              />
-              <button
+            <div className="flex items-center gap-3">
+              <button 
                 onClick={handleReload}
-                className="p-2 bg-slate-950 hover:bg-slate-900 text-white rounded-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 text-[10px] font-mono font-bold px-3 py-1.5"
+                className="p-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-xs font-mono font-bold px-4 py-3"
                 title="Reload App"
               >
-                <RefreshCw size={12} /> RELOAD
+                <RefreshCw size={14} /> RELOAD
               </button>
+              <a 
+                href="https://workwell-stem.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 px-5 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2"
+              >
+                <Globe size={14} /> BUKA DI TAB BARU
+              </a>
             </div>
           </div>
 
           <p className="text-sm text-slate-500 leading-relaxed font-medium">
-            Di bawah ini adalah aplikasi web <strong>WorkWell</strong> yang telah berhasil dibangun. Pastikan Anda menjalankan proyek WorkWell di folder sebelah dengan perintah <code>npm run dev</code> atau sejenisnya pada port yang sesuai untuk berinteraksi langsung dari dalam halaman ini.
+            Di bawah ini adalah aplikasi web <strong>WorkWell</strong> yang telah di-deploy ke Vercel secara langsung. Anda dapat berinteraksi penuh dengan dashboard kesehatan kognitif-fisik, mengatur timer screen-time, mencatat hidrasi air, dan menggunakan panduan peregangan dinamis dari dalam frame di bawah ini.
           </p>
 
           <div className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-2xl bg-slate-950 h-[650px]">
-            <iframe
+            <iframe 
               key={iframeKey}
-              src={`http://localhost:${port}`}
+              src="https://workwell-stem.vercel.app/" 
               title="WorkWell Live Web Application Embed"
               className="w-full h-full border-none bg-white"
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms"

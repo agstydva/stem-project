@@ -11,7 +11,8 @@ import {
   AlertTriangle,
   ArrowUpRight,
   X,
-  Download
+  Download,
+  Maximize2
 } from 'lucide-react';
 
 const Empathy = () => {
