@@ -78,53 +78,75 @@ const Empathy = () => {
       <main className="max-w-7xl mx-auto py-24 px-6 relative space-y-28 z-10">
         
         {/* Grid SDG & Aspek Penyelidikan */}
-        <section className="grid md:grid-cols-2 gap-8">
+        <section className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           
           {/* Card 1: SDG 3.4 Target */}
-          <div className="group relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-md shadow-slate-100/50 hover:shadow-2xl hover:border-red-100 transition-all duration-500 flex flex-col justify-between overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/[0.01] rounded-full blur-[40px] pointer-events-none" />
+          <div className="group relative bg-white p-10 md:p-12 rounded-[3rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-emerald-200 transition-all duration-500 overflow-hidden">
+            {/* Background glowing orb */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+            
             <div>
               <div className="flex items-start justify-between mb-8">
-                <div className="w-12 h-12 bg-red-50/80 rounded-2xl flex items-center justify-center text-red-600 border border-red-100/50">
-                  <Target size={22} className="stroke-[2]" />
+                <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 border border-emerald-100/50 shadow-inner">
+                  <Target size={26} className="stroke-[1.5]" />
                 </div>
-                <img src="/images/sdgs/icon3.jpg" alt="SDG 3" className="w-16 h-16 object-contain rounded-xl border border-slate-100 shadow-sm transition-transform duration-500 group-hover:rotate-3" />
+                <img 
+                  src="/images/sdgs/icon3.jpg" 
+                  alt="SDG 3 Logo" 
+                  className="w-16 h-16 object-contain rounded-xl border border-slate-100 shadow-md transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105" 
+                />
               </div>
-              <span className="text-[10px] font-mono font-bold text-red-600 tracking-widest uppercase block mb-2">UN TARGET SDG 3.4</span>
-              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-6">
+
+              <span className="text-[10px] font-mono font-black text-emerald-600 tracking-widest uppercase block mb-3">UN TARGET SDG 3.4</span>
+              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-5 leading-tight group-hover:text-emerald-700 transition-colors duration-300">
                 Tujuan dan Target Perserikatan Bangsa-Bangsa
               </h3>
               <p className="text-sm text-slate-500 leading-relaxed font-normal">
                 Pada poin ke-3, tepatnya sub poin 3.4, UN memiliki target pada tahun 2030 untuk mengurangi sepertiga kematian prematur akibat penyakit tidak menular (PTM) melalui pencegahan dan pengobatan serta mempromosikan kesehatan mental dan kesejahteraan.
               </p>
             </div>
-            <div className="border-t border-slate-100 pt-6 mt-8">
-              <span className="text-xs font-mono font-bold text-slate-400">Target Global 2030</span>
+
+            <div className="border-t border-slate-100 pt-6 mt-8 flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">GLOBAL GOALS</span>
+              <span className="bg-emerald-50 text-emerald-700 font-mono text-[9px] font-bold px-3 py-1 rounded-full border border-emerald-100/55">
+                TARGET GLOBAL 2030
+              </span>
             </div>
           </div>
 
           {/* Card 2: Aspek yang Diteliti */}
-          <div className="group relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-md shadow-slate-100/50 hover:shadow-2xl hover:border-slate-200 transition-all duration-500 flex flex-col justify-between overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-900/[0.01] rounded-full blur-[40px] pointer-events-none" />
+          <div className="group relative bg-white p-10 md:p-12 rounded-[3rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-blue-200 transition-all duration-500 overflow-hidden">
+            {/* Background glowing orb */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+            
             <div>
               <div className="flex items-start justify-between mb-8">
-                <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-900 border border-slate-200/50">
-                  <ClipboardList size={22} className="stroke-[2]" />
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100/50 shadow-inner">
+                  <ClipboardList size={26} className="stroke-[1.5]" />
                 </div>
-                <div className="w-16 h-16 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
-                  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" alt="Work posture" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="w-16 h-16 rounded-xl overflow-hidden border border-slate-100 shadow-md">
+                  <img 
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" 
+                    alt="Work posture" 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                  />
                 </div>
               </div>
-              <span className="text-[10px] font-mono font-bold text-slate-400 tracking-widest uppercase block mb-2">RESEARCH SCOPE</span>
-              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-6">
+
+              <span className="text-[10px] font-mono font-black text-blue-600 tracking-widest uppercase block mb-3">RESEARCH SCOPE</span>
+              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-5 leading-tight group-hover:text-blue-700 transition-colors duration-300">
                 Aspek dan Tujuan yang Diteliti
               </h3>
               <p className="text-sm text-slate-500 leading-relaxed font-normal">
                 Menganalisis tantangan kesehatan fisik dan mental pada pekerja digital serta mahasiswa akibat gaya hidup sedenter (duduk terlalu lama), tingkat stres kerja, keletihan mata (Computer Vision Syndrome), dehidrasi, dan kurangnya aktivitas fisik yang menghambat produktivitas dan kesejahteraan harian.
               </p>
             </div>
-            <div className="border-t border-slate-100 pt-6 mt-8">
-              <span className="text-xs font-mono font-bold text-slate-400">Kesehatan Kerja & Pendidikan Digital</span>
+
+            <div className="border-t border-slate-100 pt-6 mt-8 flex items-center justify-between">
+              <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">INVESTIGATION FOCUS</span>
+              <span className="bg-blue-50 text-blue-700 font-mono text-[9px] font-bold px-3 py-1 rounded-full border border-blue-100/55">
+                KESEHATAN KERJA & DIGITAL
+              </span>
             </div>
           </div>
 
