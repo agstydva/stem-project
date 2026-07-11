@@ -1,152 +1,224 @@
-import React from 'react';
-import { Layers, Cpu, Eye, Code, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  Layers, 
+  Cpu, 
+  Eye, 
+  Code, 
+  ArrowUpRight, 
+  CheckCircle2,
+  Maximize2,
+  X,
+  Download,
+  HelpCircle,
+  Activity,
+  FileText
+} from 'lucide-react';
+import Navbar from '../components/Navbar'; 
 
 const Prototyping = () => {
+  // State untuk lightbox modal gambar penuh
+  const [activeImage, setActiveImage] = useState(null);
+  const [modalTitle, setModalTitle] = useState('');
+
+  const openImageModal = (imagePath, title) => {
+    setActiveImage(imagePath);
+    setModalTitle(title);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeImageModal = () => {
+    setActiveImage(null);
+    setModalTitle('');
+    document.body.style.overflow = 'auto';
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
       
+      {/* Navbar */}
+      <Navbar />
+
       {/* Header Halaman */}
-      <header className="relative pt-48 pb-20 px-6 border-b border-slate-100 w-full flex items-center overflow-hidden">
+      <header className="relative pt-48 pb-20 px-6 border-b border-slate-100 bg-white w-full flex items-center overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-red-500/5 blur-[120px] pointer-events-none z-10" />
         <div className="max-w-7xl mx-auto z-20 w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <span className="h-px w-12 bg-red-500"></span>
-              <span className="text-red-700 font-mono text-[11px] uppercase tracking-[0.5em] font-black">STEM Design Thinking Stage</span>
+              <span className="text-red-700 font-mono text-[11px] uppercase tracking-[0.5em] font-black">STAGE 3: PROTOTYPE BUILD</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.95] tracking-tighter mb-8">
-              Interactive <br />
-              <span className="text-red-600">Prototyping.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Prototyping.</span>
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-slate-600 font-light tracking-tight max-w-2xl">
+            <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
               Mentransformasikan konsep abstrak menjadi modul web fungsional berkecepatan tinggi yang adaptif untuk menjamin kenyamanan ergonomis dan pemantauan hidrasi secara real-time.
             </p>
           </div>
         </div>
       </header>
 
-      {/* Section 1: Arsitektur & Lingkungan Pengembangan */}
-      <section className="max-w-7xl mx-auto py-24 px-6 relative">
-        <div className="grid lg:grid-cols-12 gap-12 items-center mb-24">
-          <div className="lg:col-span-5 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-red-500 text-white rounded-xl shadow-lg shadow-red-100">
-                <Layers size={20} />
-              </div>
-              <span className="text-red-500 font-mono font-black tracking-[0.2em] text-[10px] uppercase">High-Fidelity Build</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-950 tracking-tight leading-tight">
-              Arsitektur Sistem yang <span className="text-red-600">Ringan & Responsif</span>
-            </h2>
-            <p className="text-slate-600 leading-relaxed font-normal">
-              Prototype dikembangkan menggunakan ekosistem web modern untuk memastikan performa maksimal pada perangkat spesifikasi rendah, mereduksi beban komputasi CPU, serta memprioritaskan efisiensi daya serap kognitif pengguna.
-            </p>
-            
-            <div className="pt-4 space-y-3">
-              {[
-                "Optimasi rendering DOM untuk mencegah frame drop",
-                "Fitur kalkulator hidrasi berbasis algoritma personal",
-                "Sistem interupsi UI yang ramah secara psikologis"
-              ].map((point, i) => (
-                <div key={i} className="flex items-center gap-3 text-sm text-slate-700 font-medium">
-                  <CheckCircle2 size={18} className="text-red-500 flex-shrink-0" />
-                  <span>{point}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Konten Utama */}
+      <main className="max-w-7xl mx-auto py-24 px-6 relative space-y-28 z-10">
 
-          <div className="lg:col-span-7">
-            <div className="group relative bg-slate-50 border border-slate-100 p-4 rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl hover:border-red-100 transition-all duration-500">
-              <div className="w-full h-[400px] rounded-[1.8rem] overflow-hidden bg-slate-200">
-                <img 
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" 
-                  alt="Web Development Code Architecture" 
-                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Section 2: Tiga Pilar Komponen Utama Prototype */}
-        <div className="flex flex-col mb-16 border-b border-slate-100 pb-8">
-          <span className="text-red-500 font-mono font-black tracking-[0.2em] text-[10px] uppercase mb-2">Prototype Features</span>
-          <h3 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight">
-            Pilar Fungsional <span className="text-red-600">EduStem Platform</span>
-          </h3>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: <Cpu size={24} />,
-              title: "Core Core Engine",
-              tag: "01 / ARCHITECTURE",
-              desc: "Pengembangan modul inti penjejak waktu aktivitas (micro-breaks) menggunakan algoritma yang tidak membebani performa browser latar belakang.",
-              image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop"
-            },
-            {
-              icon: <Eye size={24} />,
-              title: "Ergonomic UI/UX",
-              tag: "02 / VISUALS",
-              desc: "Desain antarmuka visual dengan kontras tinggi namun ramah di mata untuk mereduksi gejala Computer Vision Syndrome (CVS) saat belajar lama.",
-              image: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?q=80&w=600&auto=format&fit=crop"
-            },
-            {
-              icon: <Code size={24} />,
-              title: "Automated Reminders",
-              tag: "03 / INTEGRATION",
-              desc: "Sistem trigger push-notification interaktif berbasis web untuk mendisiplinkan jadwal peregangan motorik dan hidrasi tubuh.",
-              image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop"
-            }
-          ].map((feature, idx) => (
-            <div key={idx} className="group flex flex-col bg-white border border-slate-100 rounded-[2.5rem] p-6 hover:shadow-2xl hover:shadow-red-500/5 hover:border-red-100 transition-all duration-500">
-              <div className="w-full h-44 bg-slate-50 rounded-[1.8rem] overflow-hidden mb-6 border border-slate-100">
-                <img 
-                  src={feature.image} 
-                  alt={feature.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
-                  <span className="text-[10px] font-mono font-black text-slate-400 tracking-wider block mb-2">{feature.tag}</span>
-                  <h4 className="text-xl font-black text-slate-950 tracking-tight mb-3 flex items-center gap-3">
-                    <span className="text-red-500">{feature.icon}</span>
-                    {feature.title}
-                  </h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-normal">{feature.desc}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Section 3: Call to Action / Status Proyek */}
-      <section className="max-w-7xl mx-auto pb-32 px-6">
-        <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-xl shadow-slate-950/20">
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-red-500/10 rounded-full blur-[80px] pointer-events-none" />
+        {/* Section 3: Starbursting & Lean Canvas */}
+        <section className="space-y-16">
           
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div className="max-w-2xl text-center md:text-left">
-              <span className="text-red-500 font-mono text-[10px] uppercase tracking-[0.3em] font-black block mb-3">Next Phase</span>
-              <h3 className="text-2xl md:text-4xl font-black tracking-tight mb-4 leading-tight">
-                Siap Melangkah ke Tahap Pengujian Pengguna?
-              </h3>
-              <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed">
-                Prototype komparatif ini akan dievaluasi secara berkala menggunakan parameter metrik kegunaan (*usability testing*) langsung kepada kelompok mahasiswa vokasi IT.
-              </p>
+          {/* Starbursting Card */}
+          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-red-50 text-red-600 rounded-lg"><HelpCircle size={16} /></div>
+                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">STARBURSTING METHOD</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
+                  Starbursting Model: Analisis Pertanyaan Kritis
+                </h2>
+              </div>
+              
+              <button 
+                onClick={() => openImageModal('/images/starburst.png', 'Starbursting Model')}
+                className="w-fit py-3.5 px-6 bg-red-600 hover:bg-red-700 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-red-200 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2.5"
+              >
+                <Maximize2 size={14} /> LIHAT STARBURST PENUH
+              </button>
             </div>
             
-            <button className="group flex items-center gap-3 px-8 py-5 bg-red-600 text-white rounded-full font-black text-[11px] tracking-[0.2em] hover:bg-red-500 active:scale-95 transition-all shadow-lg shadow-red-900/30 uppercase flex-shrink-0">
-              Run Testing Module
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+            <p className="text-sm text-slate-500 leading-relaxed max-w-3xl mb-10 font-medium">
+              Pendekatan Starbursting memetakan aspek pertanyaan fundamental (Who, How, What, Where, Why) secara mendalam untuk menyempurnakan kegunaan dan validitas solusi EduStem.
+            </p>
+
+            <div 
+              onClick={() => openImageModal('/images/starburst.png', 'Starbursting Model')}
+              className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-inner bg-slate-50 p-4 flex items-center justify-center cursor-pointer group/starimg"
+            >
+              <img 
+                src="/images/starburst.png" 
+                alt="Starbursting Model" 
+                className="w-full max-w-5xl h-auto rounded-xl object-contain shadow-md transition-transform duration-700 group-hover/starimg:scale-[1.01]"
+              />
+              <div className="absolute inset-0 bg-slate-950/0 group-hover/starimg:bg-slate-950/10 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover/starimg:opacity-100 bg-white/90 backdrop-blur-md text-slate-900 font-mono text-[10px] font-bold tracking-widest px-5 py-3 rounded-xl border border-slate-100 shadow-lg transition-opacity duration-300 flex items-center gap-2">
+                  <Maximize2 size={12} /> KLIK UNTUK MEMPERBESAR
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Lean Canvas Card */}
+          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 bg-slate-950 text-white rounded-lg"><Activity size={16} /></div>
+                  <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">BUSINESS MODEL CANVAS</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
+                  Lean Canvas: Model Solusi Bisnis EduStem
+                </h2>
+              </div>
+              
+              <button 
+                onClick={() => openImageModal('/leancanvas.pdf', 'Lean Canvas Model')}
+                className="w-fit py-3.5 px-6 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-slate-900/10 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2.5"
+              >
+                <Maximize2 size={14} /> LIHAT LEAN CANVAS PENUH
+              </button>
+            </div>
+            
+            <p className="text-sm text-slate-500 leading-relaxed max-w-3xl mb-10 font-medium">
+              Lean Canvas memetakan 9 aspek strategis (termasuk Problem, Solution, Unique Value Proposition, dan Cost Structure) untuk merancang kelayakan jangka panjang dan implementasi platform EduStem secara berkelanjutan.
+            </p>
+
+            <div 
+              onClick={() => openImageModal('/leancanvas.pdf', 'Lean Canvas Model')}
+              className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-inner bg-slate-100 p-8 flex flex-col items-center justify-center cursor-pointer group/leanimg min-h-[300px]"
+            >
+              <FileText size={64} className="text-slate-400 group-hover/leanimg:text-red-600 transition-colors duration-300 mb-4" />
+              <span className="text-sm font-bold text-slate-700">Dokumen Lean Canvas (PDF)</span>
+              <span className="text-xs text-slate-400 mt-1">Klik untuk membuka peninjau dokumen</span>
+
+              <div className="absolute inset-0 bg-slate-950/0 group-hover/leanimg:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
+                <span className="opacity-0 group-hover/leanimg:opacity-100 bg-white/90 backdrop-blur-md text-slate-900 font-mono text-[10px] font-bold tracking-widest px-5 py-3 rounded-xl border border-slate-100 shadow-lg transition-opacity duration-300 flex items-center gap-2">
+                  <Maximize2 size={12} /> BUKA PENINJAU PDF
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+
+      </main>
+
+      {/* Lightbox Modal Popup */}
+      {activeImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
+          {/* Backdrop */}
+          <div 
+            onClick={closeImageModal} 
+            className="absolute inset-0 bg-slate-900/85 backdrop-blur-md transition-opacity duration-300"
+          />
+          
+          {/* Modal Container */}
+          <div className="relative bg-white w-full max-w-6xl h-[85vh] rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col z-10 border border-slate-100">
+            
+            {/* Modal Header */}
+            <div className="px-6 py-4 border-b border-slate-100 bg-white flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
+                <h3 className="font-black text-slate-950 tracking-tight text-sm md:text-base leading-none">
+                  {modalTitle}
+                </h3>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                {/* Download Button */}
+                <a 
+                  href={activeImage} 
+                  download 
+                  className="p-2.5 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-950 rounded-xl transition-all border border-slate-200/50 flex items-center gap-2 text-xs font-mono font-bold"
+                  title="Unduh Gambar"
+                >
+                  <Download size={16} /> <span className="hidden sm:inline">UNDUH</span>
+                </a>
+                
+                {/* Close Button */}
+                <button 
+                  onClick={closeImageModal}
+                  className="p-2.5 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 rounded-xl transition-all border border-red-100/50"
+                  title="Tutup Gambar"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+            </div>
+            
+            {/* Modal Content */}
+            <div className="flex-1 bg-slate-900 overflow-auto p-6 flex items-center justify-center">
+              {activeImage.endsWith('.pdf') ? (
+                <iframe 
+                  src={`${activeImage}#toolbar=0`} 
+                  title={modalTitle} 
+                  className="w-full h-full border-none bg-white rounded-xl"
+                />
+              ) : (
+                <img 
+                  src={activeImage} 
+                  alt={modalTitle} 
+                  className="max-w-none w-full h-auto object-contain" 
+                  onError={(e) => {
+                    e.target.src = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80";
+                  }}
+                />
+              )}
+            </div>
+            
           </div>
         </div>
-      </section>
+      )}
 
     </div>
   );

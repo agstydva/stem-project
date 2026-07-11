@@ -1,218 +1,319 @@
-import React from 'react';
-import { Users, HelpCircle, ClipboardList, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  Heart, 
+  Target, 
+  ClipboardList, 
+  FileText, 
+  MessageSquare, 
+  BarChart3, 
+  Activity, 
+  Eye, 
+  AlertTriangle,
+  ArrowUpRight,
+  X,
+  Download
+} from 'lucide-react';
 
 const Empathy = () => {
+  // State untuk mengontrol pdf popup modal
+  const [activePdf, setActivePdf] = useState(null);
+  const [pdfTitle, setPdfTitle] = useState('');
+
+  const openPdfModal = (pdfPath, title) => {
+    setActivePdf(pdfPath);
+    setPdfTitle(title);
+    // Mencegah scroll pada body saat modal terbuka
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closePdfModal = () => {
+    setActivePdf(null);
+    setPdfTitle('');
+    // Mengembalikan scroll pada body
+    document.body.style.overflow = 'auto';
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
       
-      {/* Header Halaman */}
-      <header className="relative pt-48 pb-20 px-6 border-b border-slate-100 w-full flex items-center overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-red-500/5 blur-[120px] pointer-events-none z-10" />
-        <div className="max-w-7xl mx-auto z-20 w-full">
+      {/* Header Halaman (Hero) */}
+      <header className="relative pt-44 pb-20 px-6 border-b border-slate-100 bg-white w-full overflow-hidden">
+        {/* Background glow effects */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute -bottom-40 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.02] rounded-full blur-[100px] pointer-events-none z-0" />
+        
+        <div className="relative max-w-7xl mx-auto z-10 w-full">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="h-px w-12 bg-red-500"></span>
-              <span className="text-red-700 font-mono text-[11px] uppercase tracking-[0.5em] font-black">STEM Design Thinking Stage</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-ping"></span>
+              <span className="text-red-600 font-mono text-xs font-bold tracking-[0.4em] uppercase">STAGE 1: EMPATHIZE & RESEARCH</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.95] tracking-tighter mb-8">
+            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[1.05] tracking-tight mb-8">
               Empathy & <br />
-              <span className="text-red-600">Research.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">User Research.</span>
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-slate-600 font-light tracking-tight max-w-2xl">
-              Tahap awal framework STEM untuk mengidentifikasi hambatan kesehatan fisik dan mental yang memengaruhi efektivitas belajar mahasiswa magang dalam menguasai keterampilan digital (SDG Target 4.4).
+            <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
+              Memahami lebih dalam hambatan kesehatan, tingkat stres kognitif, dan ergonomi fisik pengguna melalui pendekatan kualitatif dan kuantitatif secara empiris.
             </p>
           </div>
         </div>
       </header>
 
-      {/* Section 1: Analisis 4W 1H Framework */}
-      <section className="max-w-7xl mx-auto py-24 px-6 relative">
-        <div className="flex flex-col mb-16 border-b border-slate-100 pb-8">
-          <h2 className="text-sm font-mono text-slate-500 uppercase tracking-widest flex items-center gap-3 relative mb-3">
-            <span className="absolute -left-4 top-0 h-full w-1 bg-red-500 rounded-full"></span>
-            <HelpCircle size={16} className="text-red-500" /> 4W 1H Problem Framework (SDG 4.4 Focus)
-          </h2>
-          <h3 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight">
-            Memetakan Tantangan Fisik dalam <span className="text-red-600">Edukasi Digital</span>
-          </h3>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { 
-              tag: "WHO", 
-              title: "Siapa Target Audiens?", 
-              image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop", 
-              desc: "Mahasiswa magang, siswa pendidikan vokasi IT, dan talenta muda yang menjalani peningkatan keterampilan digital intensif di depan komputer dalam durasi panjang." 
-            },
-            { 
-              tag: "WHY", 
-              title: "Mengapa Ini Masalah SDG 4?", 
-              image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop", 
-              desc: "Proses transfer ilmu dan produktivitas belajar terhambat serius ketika siswa mengalami stres mental, keletihan mata (Computer Vision Syndrome), serta dehidrasi karena lupa minum." 
-            },
-            { 
-              tag: "WHAT", 
-              title: "Apa Masalah Utamanya?", 
-              image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop", 
-              desc: "Absennya modul interaktif yang mendisiplinkan pelajar untuk mengambil jeda mikro (micro-breaks), melakukan peregangan fisik terpandu, dan mengontrol volume hidrasi secara berkala." 
-            },
-            { 
-              tag: "WHERE", 
-              title: "Di Mana Masalah Terjadi?", 
-              image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop", 
-              desc: "Di laboratorium komputer kampus, ruang kerja komunal, tempat magang, serta area belajar mandiri di rumah selama pembelajaran jarak jauh." 
-            },
-            { 
-              tag: "HOW", 
-              title: "Bagaimana Solusi Bekerja?", 
-              image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=600&auto=format&fit=crop", 
-              desc: "Mengintegrasikan alat pengingat otomatis ke dalam platform edutekno web untuk memaksa interupsi sehat, memandu gerakan ergonomis, dan mengembalikan fokus kognitif pelajar." 
-            }
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-red-100 transition-all duration-500">
-              <div>
-                {/* Slot Gambar untuk Setiap Poin 4W1H */}
-                <div className="w-full h-40 bg-slate-100 rounded-[1.5rem] mb-5 overflow-hidden border border-slate-100 shadow-inner">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+      {/* Konten Utama */}
+      <main className="max-w-7xl mx-auto py-24 px-6 relative space-y-28 z-10">
+        
+        {/* Grid SDG & Aspek Penyelidikan */}
+        <section className="grid md:grid-cols-2 gap-8">
+          
+          {/* Card 1: SDG 3.4 Target */}
+          <div className="group relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-md shadow-slate-100/50 hover:shadow-2xl hover:border-red-100 transition-all duration-500 flex flex-col justify-between overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/[0.01] rounded-full blur-[40px] pointer-events-none" />
+            <div>
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-12 h-12 bg-red-50/80 rounded-2xl flex items-center justify-center text-red-600 border border-red-100/50">
+                  <Target size={22} className="stroke-[2]" />
                 </div>
-                <div className="text-xs font-mono font-bold text-red-600 mb-2">{item.tag} PROCESS</div>
-                <h4 className="text-lg font-black text-slate-950 tracking-tight mb-2">{item.title}</h4>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                <img src="/images/sdgs/icon3.jpg" alt="SDG 3" className="w-16 h-16 object-contain rounded-xl border border-slate-100 shadow-sm transition-transform duration-500 group-hover:rotate-3" />
               </div>
+              <span className="text-[10px] font-mono font-bold text-red-600 tracking-widest uppercase block mb-2">UN TARGET SDG 3.4</span>
+              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-6">
+                Tujuan dan Target Perserikatan Bangsa-Bangsa
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-normal">
+                Pada poin ke-3, tepatnya sub poin 3.4, UN memiliki target pada tahun 2030 untuk mengurangi sepertiga kematian prematur akibat penyakit tidak menular (PTM) melalui pencegahan dan pengobatan serta mempromosikan kesehatan mental dan kesejahteraan.
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
+            <div className="border-t border-slate-100 pt-6 mt-8">
+              <span className="text-xs font-mono font-bold text-slate-400">Target Global 2030</span>
+            </div>
+          </div>
 
-      {/* Section 2: Metodologi Pengambilan Data & Bukti Empiris */}
-      <section className="bg-slate-50 py-24 px-6 border-y border-slate-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-16 items-start">
+          {/* Card 2: Aspek yang Diteliti */}
+          <div className="group relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-md shadow-slate-100/50 hover:shadow-2xl hover:border-slate-200 transition-all duration-500 flex flex-col justify-between overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-slate-900/[0.01] rounded-full blur-[40px] pointer-events-none" />
+            <div>
+              <div className="flex items-start justify-between mb-8">
+                <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-900 border border-slate-200/50">
+                  <ClipboardList size={22} className="stroke-[2]" />
+                </div>
+                <div className="w-16 h-16 rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+                  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" alt="Work posture" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                </div>
+              </div>
+              <span className="text-[10px] font-mono font-bold text-slate-400 tracking-widest uppercase block mb-2">RESEARCH SCOPE</span>
+              <h3 className="text-2xl font-black text-slate-950 tracking-tight mb-6">
+                Aspek dan Tujuan yang Diteliti
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed font-normal">
+                Menganalisis tantangan kesehatan fisik dan mental pada pekerja digital serta mahasiswa akibat gaya hidup sedenter (duduk terlalu lama), tingkat stres kerja, keletihan mata (Computer Vision Syndrome), dehidrasi, dan kurangnya aktivitas fisik yang menghambat produktivitas dan kesejahteraan harian.
+              </p>
+            </div>
+            <div className="border-t border-slate-100 pt-6 mt-8">
+              <span className="text-xs font-mono font-bold text-slate-400">Kesehatan Kerja & Pendidikan Digital</span>
+            </div>
+          </div>
+
+        </section>
+
+        {/* Metodologi Penelitian */}
+        <section className="group relative bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden">
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-red-500/[0.01] rounded-full blur-[120px] pointer-events-none" />
+          
+          <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-5">
-              <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
-                {/* Slot Gambar Metodologi */}
-                <div className="w-full h-48 bg-slate-100 rounded-[1.5rem] mb-6 overflow-hidden border border-slate-100 shadow-inner">
-                  <img 
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&auto=format&fit=crop" 
-                    alt="Metodologi Riset STEM" 
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 bg-red-100 text-red-600 rounded-xl">
-                    <Users size={20} />
+            <div className="lg:col-span-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-red-50 text-red-600 rounded-lg"><Activity size={16} /></div>
+                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">METODOLOGI PENELITIAN</span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight mb-8">
+                Hasil Penelitian dengan Pendekatan Empati
+              </h3>
+              
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-4xl mb-12 font-medium">
+                Penelitian ini mengintegrasikan metode <strong>Kuantitatif (Survei)</strong> dan <strong>Kualitatif (Wawancara)</strong> untuk mengumpulkan data riil mengenai ketersediaan akses terhadap kesadaran kesehatan kerja digital, tingkat stres, dan keluhan fisik responden di Indonesia.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8 border-t border-slate-100 pt-12">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600"><BarChart3 size={16} /></div>
+                    <h4 className="font-black text-slate-900 text-lg">Metode 1: Survei Kuantitatif</h4>
                   </div>
-                  <h3 className="text-xl font-black text-slate-950 tracking-tight">Metodologi Riset</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed pl-11">
+                    Survei disebarkan menggunakan platform Google Form kepada responden dengan latar belakang mahasiswa rumpun IT dan pekerja digital di Indonesia untuk mengidentifikasi tingkat stres kognitif dan prevalensi keluhan fisik.
+                  </p>
                 </div>
-                <h4 className="text-sm font-bold text-slate-950 mb-2">Analisis Kesiapan Belajar Holistik</h4>
-                <p className="text-sm text-slate-600 leading-relaxed mb-6 font-normal">
-                  Wawancara kualitatif mendalam dan survei kuantitatif diterapkan guna memetakan korelasi langsung antara tingkat kelelahan fisik (ergonomi layar) dengan penurunan daya serap serta fokus mahasiswa selama menyelesaikan tugas modul digital.
-                </p>
-                <div className="border-t border-slate-100 pt-5">
-                  <h4 className="text-xs font-mono font-bold text-red-600 uppercase mb-3">Tanggapan Terhadap Bukti</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                    Temuan membuktikan bahwa intervensi teknologi berupa notifikasi psikologis interaktif jauh lebih efektif mengubah kebiasaan buruk pelajar daripada sekadar mengandalkan instruksi teks pasif.
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-slate-950 text-white flex items-center justify-center"><MessageSquare size={16} /></div>
+                    <h4 className="font-black text-slate-900 text-lg">Metode 2: Wawancara Kualitatif</h4>
+                  </div>
+                  <p className="text-xs text-slate-500 leading-relaxed pl-11">
+                    Wawancara mendalam dilakukan dengan beberapa perwakilan mahasiswa vokasi dan pekerja magang untuk mendengar secara personal keluhan subjektif mereka terkait ergonomi, durasi screen-time, dan kebutuhan asupan cairan harian.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-3">
-                <MessageSquare size={18} className="text-red-600" />
-                <h3 className="text-xs font-mono font-black text-slate-400 uppercase tracking-widest">Bukti Wawancara Lapangan & Dokumentasi</h3>
+            {/* Dual Images for Methodology */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              {/* Image 1: Survei Kuesioner (Google Form) */}
+              <div className="w-full h-40 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative group">
+                <img 
+                  src="/images/survey_screenshot.png" 
+                  alt="Survei Kesehatan & Kesejahteraan Pekerja" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute bottom-2 left-2 bg-slate-900/65 backdrop-blur-sm px-3 py-1 rounded-lg text-[9px] text-white font-mono font-semibold">
+                  METODE 1: KUESIONER
+                </div>
               </div>
               
-              {/* Informan A + Gambar */}
-              <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm grid md:grid-cols-12 gap-6 items-center">
-                <div className="md:col-span-4 h-32 bg-slate-100 rounded-[1.5rem] overflow-hidden border">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
-                    alt="Dokumentasi Wawancara Mahasiswa" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:col-span-8">
-                  <p className="text-sm text-slate-600 italic font-medium leading-relaxed">
-                    "Kalau sudah fokus melakukan analisis data atau pengerjaan web design berjam-jam, saya sering lupa waktu dan mengabaikan botol minum. Efeknya mata terasa sangat perih, leher kaku, dan konsentrasi belajar menurun drastis karena pusing di akhir sesi."
-                  </p>
-                  <p className="text-[11px] font-mono font-bold text-slate-400 block mt-3">— Informan A (Mahasiswa Magang Bidang Ilmu Komputer, Smt 6)</p>
-                </div>
-              </div>
-
-              {/* Informan B + Gambar */}
-              <div className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm grid md:grid-cols-12 gap-6 items-center">
-                <div className="md:col-span-4 h-32 bg-slate-100 rounded-[1.5rem] overflow-hidden border">
-                  <img 
-                    src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=600&auto=format&fit=crop" 
-                    alt="Dokumentasi Siswa Vokasi" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:col-span-8">
-                  <p className="text-sm text-slate-600 italic font-medium leading-relaxed">
-                    "Kurikulum mengajarkan kami intensif membina technical skill digital, tetapi belum membekali kebiasaan ergonomi yang benar saat bekerja di depan layar. Program pengingat terintegrasi dengan tutorial peregangan singkat sangat kami butuhkan."
-                  </p>
-                  <p className="text-[11px] font-mono font-bold text-slate-400 block mt-3">— Informan B (Siswa Vokasi IT, Peserta Internship Front-End)</p>
+              {/* Image 2: Wawancara Kualitatif (Students at desk) */}
+              <div className="w-full h-40 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative group">
+                <img 
+                  src="/images/interview_photo.jpg" 
+                  alt="Proses Wawancara Mahasiswa" 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute bottom-2 left-2 bg-slate-900/65 backdrop-blur-sm px-3 py-1 rounded-lg text-[9px] text-white font-mono font-semibold">
+                  METODE 2: WAWANCARA
                 </div>
               </div>
             </div>
 
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Section 3: Research with Empathy Worksheet / Matrix */}
-      <section className="max-w-7xl mx-auto py-24 px-6 relative">
-        <div className="group relative bg-gradient-to-br from-slate-50 via-white to-red-50/20 rounded-[3rem] p-10 md:p-16 border border-slate-100 overflow-hidden shadow-2xl shadow-slate-100/50">
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-red-600 text-[10px] font-mono font-black px-4 py-1.5 w-fit rounded-full tracking-[0.2em] text-white shadow-md">BENCHMARK MATRIX</div>
-              <h2 className="text-sm font-mono text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                <ClipboardList size={14} /> Research with Empathy Worksheet
-              </h2>
+        {/* Data Temuan Utama (Insight Metrics) */}
+        <section className="space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest">KEY DATA INSIGHTS</span>
+            <h3 className="text-3xl font-black text-slate-950 tracking-tight">Hasil Temuan Penelitian</h3>
+          </div>
+          
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { label: "Stres Kerja Sedang-Tinggi", value: "77.2%", icon: <AlertTriangle size={18} />, color: "bg-red-600" },
+              { label: "Responden Mengalami Keluhan Fisik", value: "77.3%", icon: <Activity size={18} />, color: "bg-orange-600" },
+              { label: "Mendukung Dashboard Solusi Preventif", value: "72.7%", icon: <Eye size={18} />, color: "bg-emerald-600" }
+            ].map((stat, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className={`w-10 h-10 ${stat.color} text-white rounded-xl flex items-center justify-center mb-6`}>{stat.icon}</div>
+                <p className="text-4xl font-black text-slate-950 tracking-tight mb-2">{stat.value}</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider leading-relaxed">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Downloadable / Viewable PDFs */}
+        <section className="space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest">DOCUMENT ARTIFACTS</span>
+            <h3 className="text-3xl font-black text-slate-950 tracking-tight">Akses Laporan Lengkap Penelitian</h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            
+            {/* Laporan Survei Card */}
+            <div className="group relative bg-white p-8 md:p-12 rounded-[3rem] border border-slate-100 shadow-md flex flex-col justify-between hover:shadow-2xl hover:border-red-100 transition-all duration-500 overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-500/5 to-transparent rounded-bl-[4rem] pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+              <div>
+                <span className="text-[10px] font-mono font-black text-red-600 uppercase tracking-widest block mb-4">SURVEY RESULTS</span>
+                <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight">Dokumen Hasil Survei Kuesioner</h4>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8">
+                  Akses file laporan lengkap berisi diagram statistik, olah data mentah kuesioner, dan analisis persentase keluhan kesehatan dari Google Form responden di lapangan.
+                </p>
+              </div>
+              <button 
+                onClick={() => openPdfModal('/survei.pdf', 'Laporan Hasil Survei Kesehatan & Ergonomi')}
+                className="w-fit py-4 px-8 bg-red-600 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-red-200 hover:bg-red-700 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 flex items-center gap-3"
+              >
+                LIHAT HASIL SURVEI <ArrowUpRight size={14} />
+              </button>
+            </div>
+
+            {/* Matrix Penelitian & Empati Card */}
+            <div className="group relative bg-white p-8 md:p-12 rounded-[3rem] border border-slate-100 shadow-md flex flex-col justify-between hover:shadow-2xl hover:border-slate-200 transition-all duration-500 overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-slate-950/5 to-transparent rounded-bl-[4rem] pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+              <div>
+                <span className="text-[10px] font-mono font-black text-slate-400 uppercase tracking-widest block mb-4">EMPATHY MAP MATRIX</span>
+                <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight">Dokumen Matrix Penelitian & Empati</h4>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8">
+                  Akses matriks empati komparatif yang merumuskan aspek psikologis responden (Says, Thinks, Does, Feels) serta perancangan target intervensi yang paling tepat sasaran.
+                </p>
+              </div>
+              <button 
+                onClick={() => openPdfModal('/matrix.pdf', 'Matrix Penelitian & Empati')}
+                className="w-fit py-4 px-8 bg-slate-950 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-slate-950/15 hover:bg-slate-900 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 flex items-center gap-3"
+              >
+                LIHAT MATRIX EMPATI <ArrowUpRight size={14} />
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      {/* PDF View Modal Popup */}
+      {activePdf && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
+          {/* Backdrop */}
+          <div 
+            onClick={closePdfModal} 
+            className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300"
+          />
+          
+          {/* Modal Container */}
+          <div className="relative bg-white w-full max-w-5xl h-[85vh] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col z-10 transition-transform duration-300 scale-100 border border-slate-100">
+            
+            {/* Modal Header */}
+            <div className="px-6 py-4 border-b border-slate-100 bg-white flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+                <h3 className="font-black text-slate-950 tracking-tight text-sm md:text-base leading-none">
+                  {pdfTitle}
+                </h3>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                {/* Download Button */}
+                <a 
+                  href={activePdf} 
+                  download 
+                  className="p-2.5 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-950 rounded-xl transition-all border border-slate-200/50 flex items-center gap-2 text-xs font-mono font-bold"
+                  title="Unduh File PDF"
+                >
+                  <Download size={16} /> <span className="hidden sm:inline">UNDUH</span>
+                </a>
+                
+                {/* Close Button */}
+                <button 
+                  onClick={closePdfModal}
+                  className="p-2.5 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 rounded-xl transition-all border border-red-100/50"
+                  title="Tutup Modal"
+                >
+                  <X size={16} />
+                </button>
+              </div>
             </div>
             
-            <h3 className="text-2xl md:text-3xl font-black mb-8 text-slate-950 tracking-tight">
-              Analisis Komparatif Solusi Penunjang Belajar Eksisting
-            </h3>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200 text-slate-400 font-mono text-xs uppercase tracking-wider">
-                    <th className="pb-4 font-bold">Konteks / Solusi Eksisting</th>
-                    <th className="pb-4 font-bold">Kelebihan (Strengths)</th>
-                    <th className="pb-4 font-bold">Kelemahan (Weaknesses)</th>
-                    <th className="pb-4 font-bold">Sinergi STEM Proyek Kami (SDG 4)</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 text-slate-600">
-                  <tr>
-                    <td className="py-4 pr-4 font-bold text-slate-950">Aplikasi Timer Alarm Smartphone</td>
-                    <td className="py-4 pr-4">Praktis diatur secara manual oleh masing-masing siswa.</td>
-                    <td className="py-4 pr-4">Hanya berupa dering biasa yang mudah dimatikan/diabaikan, tidak terhubung ke desktop tempat belajar, dan tidak menyajikan panduan fisik.</td>
-                    <td className="py-4 text-red-600 font-medium">Membangun ekosistem modul web pembelajaran yang memaksa interupsi visual berupa animasi taktik peregangan sehat langsung di layar utama.</td>
-                  </tr>
-                  <tr>
-                    <td className="py-4 pr-4 font-bold text-slate-950">Buku Panduan Teori K3 Akademik</td>
-                    <td className="py-4 pr-4">Dokumentasi aturan posisi duduk anatomis sangat akurat secara medis.</td>
-                    <td className="py-4 pr-4">Format materi pasif, tidak menempel dalam ritme kerja/belajar harian, serta tidak memantau volume hidrasi secara real-time.</td>
-                    <td className="py-4 text-red-600 font-medium">Mentransformasikan literasi teks menjadi fitur kalkulator hidrasi interaktif dan pelacak waktu jeda mikro yang fungsional.</td>
-                  </tr>
-                </tbody>
-              </table>
+            {/* Modal Content (PDF Renderer) */}
+            <div className="flex-1 bg-slate-100 relative">
+              <iframe 
+                src={`${activePdf}#toolbar=0`} 
+                title={pdfTitle} 
+                className="w-full h-full border-none"
+              />
             </div>
-
+            
           </div>
         </div>
-      </section>
+      )}
 
     </div>
   );

@@ -72,16 +72,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Call to Action / Trello Button (Optional but Pro) */}
-          <div className="hidden md:block">
-            <button className={`px-5 py-2 rounded-full font-mono text-[10px] font-bold tracking-widest transition-all duration-500 ${
-              scrolled 
-                ? 'bg-red-600 text-white shadow-red-200 shadow-lg hover:scale-105 active:scale-95' 
-                : 'bg-slate-900 text-white hover:bg-red-600'
-            }`}>
-              TRELLO BOARD
-            </button>
-          </div>
+
 
         </div>
       </div>
