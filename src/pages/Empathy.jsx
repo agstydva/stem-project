@@ -354,45 +354,72 @@ const Empathy = () => {
         {/* Downloadable / Viewable PDFs */}
         <section className="space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest">DOCUMENT ARTIFACTS</span>
+            <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest">RESEARCH ARTIFACTS</span>
             <h3 className="text-3xl font-black text-slate-950 tracking-tight">Akses Laporan Lengkap Penelitian</h3>
+            <p className="text-sm text-slate-500 font-medium">Unduh atau baca secara interaktif laporan penelitian empiris dan matriks desain kami.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
             {/* Laporan Survei Card */}
-            <div className="group relative bg-white p-8 md:p-12 rounded-[3rem] border border-slate-100 shadow-md flex flex-col justify-between hover:shadow-2xl hover:border-red-100 transition-all duration-500 overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-red-500/5 to-transparent rounded-bl-[4rem] pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+            <div className="group relative bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-red-100/70 transition-all duration-500 overflow-hidden">
+              {/* Background gradient orb */}
+              <div className="absolute -top-10 -right-10 w-44 h-44 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+              
               <div>
-                <span className="text-[10px] font-mono font-black text-red-600 uppercase tracking-widest block mb-4">SURVEY RESULTS</span>
-                <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight">Dokumen Hasil Survei Kuesioner</h4>
-                <p className="text-sm text-slate-500 leading-relaxed mb-8">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 border border-red-100/50">
+                    <FileText size={22} />
+                  </div>
+                  <span className="bg-red-50 text-red-600 font-mono text-[9px] font-bold px-3 py-1.5 rounded-full border border-red-100/50">
+                    SURVEI REPORT PDF
+                  </span>
+                </div>
+                
+                <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight group-hover:text-red-600 transition-colors duration-300">
+                  Dokumen Hasil Survei Kuesioner
+                </h4>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 font-normal">
                   Akses file laporan lengkap berisi diagram statistik, olah data mentah kuesioner, dan analisis persentase keluhan kesehatan dari Google Form responden di lapangan.
                 </p>
               </div>
+
               <button 
                 onClick={() => openPdfModal('/survei.pdf', 'Laporan Hasil Survei Kesehatan & Ergonomi')}
-                className="w-fit py-4 px-8 bg-red-600 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-red-200 hover:bg-red-700 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 flex items-center gap-3"
+                className="w-full py-4 px-8 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 border border-slate-950 group-hover:bg-red-600 group-hover:border-red-600 group-hover:shadow-red-200 group-hover:shadow-xl"
               >
-                LIHAT HASIL SURVEI <ArrowUpRight size={14} />
+                LIHAT HASIL SURVEI <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
             </div>
 
             {/* Matrix Penelitian & Empati Card */}
-            <div className="group relative bg-white p-8 md:p-12 rounded-[3rem] border border-slate-100 shadow-md flex flex-col justify-between hover:shadow-2xl hover:border-slate-200 transition-all duration-500 overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-slate-950/5 to-transparent rounded-bl-[4rem] pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+            <div className="group relative bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-slate-300 transition-all duration-500 overflow-hidden">
+              {/* Background gradient orb */}
+              <div className="absolute -top-10 -right-10 w-44 h-44 bg-gradient-to-br from-slate-950/5 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+              
               <div>
-                <span className="text-[10px] font-mono font-black text-slate-400 uppercase tracking-widest block mb-4">EMPATHY MAP MATRIX</span>
-                <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight">Dokumen Matrix Penelitian & Empati</h4>
-                <p className="text-sm text-slate-500 leading-relaxed mb-8">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 border border-slate-200/50">
+                    <ClipboardList size={22} />
+                  </div>
+                  <span className="bg-slate-100 text-slate-700 font-mono text-[9px] font-bold px-3 py-1.5 rounded-full border border-slate-200/50">
+                    EMPATHY MATRIX PDF
+                  </span>
+                </div>
+                
+                <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight group-hover:text-red-600 transition-colors duration-300">
+                  Dokumen Matrix Penelitian & Empati
+                </h4>
+                <p className="text-sm text-slate-500 leading-relaxed mb-8 font-normal">
                   Akses matriks empati komparatif yang merumuskan aspek psikologis responden (Says, Thinks, Does, Feels) serta perancangan target intervensi yang paling tepat sasaran.
                 </p>
               </div>
+
               <button 
                 onClick={() => openPdfModal('/matrix.pdf', 'Matrix Penelitian & Empati')}
-                className="w-fit py-4 px-8 bg-slate-950 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg shadow-slate-950/15 hover:bg-slate-900 hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 flex items-center gap-3"
+                className="w-full py-4 px-8 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 border border-slate-950 group-hover:shadow-xl"
               >
-                LIHAT MATRIX EMPATI <ArrowUpRight size={14} />
+                LIHAT MATRIX EMPATI <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
             </div>
 
