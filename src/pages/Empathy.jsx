@@ -187,7 +187,7 @@ const Empathy = () => {
                       <h4 className="font-extrabold text-slate-900 text-lg">Survei Kuantitatif</h4>
                     </div>
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                      Survei disebarkan menggunakan platform Google Form kepada responden dengan latar belakang mahasiswa rumpun IT dan pekerja digital di Indonesia untuk mengidentifikasi tingkat stres kognitif dan prevalensi keluhan fisik.
+                      Survei disebarkan menggunakan platform Google Form kepada responden dengan latar belakang mahasiswa rumpun IT atau umum dan pekerja digital di Indonesia untuk mengidentifikasi tingkat stres kognitif dan prevalensi keluhan fisik.
                     </p>
                   </div>
                 </div>
