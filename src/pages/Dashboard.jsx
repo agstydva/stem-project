@@ -220,18 +220,44 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-
             <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
               {[
-                { label: "Literasi Digital", value: "3.54", color: "bg-blue-600", icon: <Lightbulb size={20}/> },
-                { label: "Angka Partisipasi", value: "95.9%", color: "bg-red-600", icon: <Users size={20}/> },
-                { label: "Disparitas Desa", value: "18.2%", color: "bg-emerald-600", icon: <Globe2 size={20}/> },
-                { label: "STEM Interest", value: "42%", color: "bg-orange-600", icon: <PenTool size={20}/> }
+                { 
+                  label: "Literasi Digital", 
+                  value: "3.54", 
+                  color: "bg-blue-600", 
+                  icon: <Lightbulb size={20}/>,
+                  desc: "Skala 1-5. Data Survei Indeks Literasi Digital Nasional Kemenkominfo, mengukur kecakapan digital pilar dasar."
+                },
+                { 
+                  label: "Angka Partisipasi", 
+                  value: "95.9%", 
+                  color: "bg-red-600", 
+                  icon: <Users size={20}/>,
+                  desc: "Berdasarkan rilis BPS 2023 mengenai Angka Partisipasi Sekolah (APS) jenjang pendidikan menengah."
+                },
+                { 
+                  label: "Disparitas Desa", 
+                  value: "18.2%", 
+                  color: "bg-emerald-600", 
+                  icon: <Globe2 size={20}/>,
+                  desc: "Selisih aksesibilitas & fasilitas penunjang pendidikan digital daerah pelosok versus perkotaan (Bappenas)."
+                },
+                { 
+                  label: "STEM Interest", 
+                  value: "42%", 
+                  color: "bg-orange-600", 
+                  icon: <PenTool size={20}/>,
+                  desc: "Survei minat & ketertarikan mahasiswa Kampus Hijau UNJ dalam ekosistem karir bidang sains & teknologi."
+                }
               ].map((stat, idx) => (
-                <div key={idx} className="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-red-100 hover:-translate-y-1">
-                  <div className={`w-11 h-11 ${stat.color} text-white rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-all`}>{stat.icon}</div>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{stat.label}</p>
-                  <p className="text-4xl font-black text-slate-900 tracking-tighter">{stat.value}</p>
+                <div key={idx} className="group bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:border-red-100 hover:-translate-y-1 flex flex-col justify-between">
+                  <div>
+                    <div className={`w-11 h-11 ${stat.color} text-white rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-all`}>{stat.icon}</div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{stat.label}</p>
+                    <p className="text-4xl font-black text-slate-900 tracking-tighter mb-4">{stat.value}</p>
+                  </div>
+                  <p className="text-xs text-slate-500 font-medium leading-relaxed border-t border-slate-100/50 pt-4 mt-auto">{stat.desc}</p>
                 </div>
               ))}
             </div>
