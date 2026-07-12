@@ -156,72 +156,102 @@ const Empathy = () => {
         </section>
 
         {/* Metodologi Penelitian */}
-        <section className="group relative bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden">
-          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-red-500/[0.01] rounded-full blur-[120px] pointer-events-none" />
+        <section className="group relative bg-white rounded-[3.5rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden">
+          {/* Subtle background decorative shapes */}
+          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-red-500/[0.015] rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-blue-500/[0.01] rounded-full blur-[120px] pointer-events-none" />
           
           <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-red-50 text-red-600 rounded-lg"><Activity size={16} /></div>
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest">METODOLOGI PENELITIAN</span>
+                <div className="p-2.5 bg-red-50 text-red-600 rounded-xl"><Activity size={18} className="stroke-[2]" /></div>
+                <span className="text-[10px] font-mono font-black text-slate-400 uppercase tracking-[0.2em]">METODOLOGI PENELITIAN</span>
               </div>
-              <h3 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight mb-8">
-                Hasil Penelitian dengan Pendekatan Empati
+              <h3 className="text-3xl md:text-5xl font-black text-slate-950 tracking-tight mb-8">
+                Hasil Penelitian dengan <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-600">Pendekatan Empati</span>
               </h3>
               
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-4xl mb-12 font-medium">
-                Penelitian ini mengintegrasikan metode <strong>Kuantitatif (Survei)</strong> dan <strong>Kualitatif (Wawancara)</strong> untuk mengumpulkan data riil mengenai ketersediaan akses terhadap kesadaran kesehatan kerja digital, tingkat stres, dan keluhan fisik responden di Indonesia.
+              <p className="text-base text-slate-600 leading-relaxed max-w-4xl mb-12 font-medium">
+                Penelitian ini mengintegrasikan metode <strong className="text-slate-900 font-extrabold">Kuantitatif (Survei)</strong> dan <strong className="text-slate-900 font-extrabold">Kualitatif (Wawancara)</strong> untuk mengumpulkan data riil mengenai ketersediaan akses terhadap kesadaran kesehatan kerja digital, tingkat stres, dan keluhan fisik responden di Indonesia.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-8 border-t border-slate-100 pt-12">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600"><BarChart3 size={16} /></div>
-                    <h4 className="font-black text-slate-900 text-lg">Metode 1: Survei Kuantitatif</h4>
+              <div className="grid md:grid-cols-2 gap-6 border-t border-slate-100 pt-12">
+                
+                {/* Method 1 Card */}
+                <div className="group/card relative bg-slate-50/50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-red-100 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 flex flex-col justify-between">
+                  <div className="absolute top-6 right-8 text-6xl font-black text-slate-100 group-hover/card:text-red-50 transition-colors pointer-events-none select-none">01</div>
+                  <div className="relative z-10 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center group-hover/card:bg-red-500 group-hover/card:text-white transition-all duration-300 shadow-sm"><BarChart3 size={18} /></div>
+                      <h4 className="font-extrabold text-slate-900 text-lg">Survei Kuantitatif</h4>
+                    </div>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                      Survei disebarkan menggunakan platform Google Form kepada responden dengan latar belakang mahasiswa rumpun IT dan pekerja digital di Indonesia untuk mengidentifikasi tingkat stres kognitif dan prevalensi keluhan fisik.
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-500 leading-relaxed pl-11">
-                    Survei disebarkan menggunakan platform Google Form kepada responden dengan latar belakang mahasiswa rumpun IT dan pekerja digital di Indonesia untuk mengidentifikasi tingkat stres kognitif dan prevalensi keluhan fisik.
-                  </p>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-slate-950 text-white flex items-center justify-center"><MessageSquare size={16} /></div>
-                    <h4 className="font-black text-slate-900 text-lg">Metode 2: Wawancara Kualitatif</h4>
+                {/* Method 2 Card */}
+                <div className="group/card relative bg-slate-50/50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-500/5 transition-all duration-300 flex flex-col justify-between">
+                  <div className="absolute top-6 right-8 text-6xl font-black text-slate-100 group-hover/card:text-slate-200/50 transition-colors pointer-events-none select-none">02</div>
+                  <div className="relative z-10 space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-slate-950 text-white flex items-center justify-center group-hover/card:scale-105 transition-all duration-300 shadow-sm"><MessageSquare size={18} /></div>
+                      <h4 className="font-extrabold text-slate-900 text-lg">Wawancara Kualitatif</h4>
+                    </div>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                      Wawancara mendalam dilakukan dengan beberapa perwakilan mahasiswa vokasi dan pekerja magang untuk mendengar secara personal keluhan subjektif mereka terkait ergonomi, durasi screen-time, dan kebutuhan asupan cairan harian.
+                    </p>
                   </div>
-                  <p className="text-xs text-slate-500 leading-relaxed pl-11">
-                    Wawancara mendalam dilakukan dengan beberapa perwakilan mahasiswa vokasi dan pekerja magang untuk mendengar secara personal keluhan subjektif mereka terkait ergonomi, durasi screen-time, dan kebutuhan asupan cairan harian.
-                  </p>
                 </div>
+
               </div>
             </div>
 
-            {/* Dual Images for Methodology */}
+            {/* Dual Images for Methodology (With interactive lightbox) */}
             <div className="lg:col-span-4 flex flex-col gap-6">
+              
               {/* Image 1: Survei Kuesioner (Google Form) */}
-              <div className="w-full h-40 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative group">
+              <div 
+                onClick={() => openImageModal('/images/survey_screenshot.png', 'Survei Kesehatan & Kesejahteraan Pekerja')}
+                className="w-full h-44 rounded-3xl overflow-hidden border border-slate-200/60 shadow-md relative group/img cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-red-200"
+              >
                 <img 
                   src="/images/survey_screenshot.png" 
                   alt="Survei Kesehatan & Kesejahteraan Pekerja" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                 />
-                <div className="absolute bottom-2 left-2 bg-slate-900/65 backdrop-blur-sm px-3 py-1 rounded-lg text-[9px] text-white font-mono font-semibold">
+                <div className="absolute inset-0 bg-slate-950/0 group-hover/img:bg-slate-950/20 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover/img:opacity-100 bg-white/90 backdrop-blur-md text-slate-900 p-2.5 rounded-full shadow-lg transition-opacity duration-300">
+                    <Eye size={18} className="stroke-[2.5]" />
+                  </div>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md border border-slate-100 px-3.5 py-1.5 rounded-xl text-[9px] text-slate-800 font-mono font-black shadow-sm uppercase tracking-wider">
                   METODE 1: KUESIONER
                 </div>
               </div>
               
               {/* Image 2: Wawancara Kualitatif (Students at desk) */}
-              <div className="w-full h-40 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative group">
+              <div 
+                onClick={() => openImageModal('/images/interview_photo.jpg', 'Proses Wawancara Mahasiswa')}
+                className="w-full h-44 rounded-3xl overflow-hidden border border-slate-200/60 shadow-md relative group/img cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-slate-400"
+              >
                 <img 
                   src="/images/interview_photo.jpg" 
                   alt="Proses Wawancara Mahasiswa" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                 />
-                <div className="absolute bottom-2 left-2 bg-slate-900/65 backdrop-blur-sm px-3 py-1 rounded-lg text-[9px] text-white font-mono font-semibold">
+                <div className="absolute inset-0 bg-slate-950/0 group-hover/img:bg-slate-950/20 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover/img:opacity-100 bg-white/90 backdrop-blur-md text-slate-900 p-2.5 rounded-full shadow-lg transition-opacity duration-300">
+                    <Eye size={18} className="stroke-[2.5]" />
+                  </div>
+                </div>
+                <div className="absolute bottom-3 left-3 bg-slate-950/90 backdrop-blur-md border border-slate-800 px-3.5 py-1.5 rounded-xl text-[9px] text-white font-mono font-black shadow-sm uppercase tracking-wider">
                   METODE 2: WAWANCARA
                 </div>
               </div>
+
             </div>
 
           </div>
