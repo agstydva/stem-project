@@ -201,7 +201,7 @@ const Empathy = () => {
                       <h4 className="font-extrabold text-slate-900 text-lg">Wawancara Kualitatif</h4>
                     </div>
                     <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                      Wawancara mendalam dilakukan dengan beberapa perwakilan mahasiswa vokasi dan pekerja magang untuk mendengar secara personal keluhan subjektif mereka terkait ergonomi, durasi screen-time, dan kebutuhan asupan cairan harian.
+                      Wawancara mendalam dilakukan dengan mahasiswa magang dan karyawan perusahaan untuk mendengar secara personal keluhan subjektif mereka terkait ergonomi, durasi screen-time, dan kebutuhan asupan cairan harian.
                     </p>
                   </div>
                 </div>
