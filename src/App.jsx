@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // Halaman Utama
 import Dashboard from './pages/Dashboard';
@@ -22,6 +23,7 @@ import Reflection from './pages/Reflection';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       {/* Tips: Karena Dashboard kamu pakai background putih, 
         pastikan bg-[#020617] (hitam) ini memang warna yang kamu mau 
         atau ganti ke bg-white jika ingin senada dengan Dashboard 
