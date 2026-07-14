@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="flex flex-col md:items-end gap-8">
               {/* Collaboration Board Button */}
               <a 
-                href="https://trello.com/your-board" 
+                href="https://github.com/agstydva/workwell/graphs/contributors?from=4%2F11%2F2026" 
                 target="_blank" 
                 rel="noreferrer"
                 className="group flex items-center gap-3 bg-white border border-slate-200 px-6 py-3 rounded-2xl text-slate-900 text-xs font-bold tracking-widest hover:border-red-600 hover:shadow-xl hover:shadow-red-50 transition-all duration-300"
