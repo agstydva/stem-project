@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { 
-  Heart, 
-  Target, 
-  ClipboardList, 
-  FileText, 
-  MessageSquare, 
-  BarChart3, 
-  Activity, 
-  Eye, 
+import {
+  Heart,
+  Target,
+  ClipboardList,
+  FileText,
+  MessageSquare,
+  BarChart3,
+  Activity,
+  Eye,
   AlertTriangle,
   ArrowUpRight,
   X,
@@ -53,13 +53,13 @@ const Empathy = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-red-100 selection:text-red-600 overflow-x-hidden">
-      
+
       {/* Header Halaman (Hero) */}
       <header className="relative pt-44 pb-20 px-6 border-b border-slate-100 bg-white w-full overflow-hidden">
         {/* Background glow effects */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
         <div className="absolute -bottom-40 left-1/4 w-[400px] h-[400px] bg-blue-500/[0.02] rounded-full blur-[100px] pointer-events-none z-0" />
-        
+
         <div className="relative max-w-7xl mx-auto z-10 w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
@@ -79,24 +79,24 @@ const Empathy = () => {
 
       {/* Konten Utama */}
       <main className="max-w-7xl mx-auto py-24 px-6 relative space-y-28 z-10">
-        
+
         {/* Grid SDG & Aspek Penyelidikan */}
         <section className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          
+
           {/* Card 1: SDG 3.4 Target */}
           <div className="group relative bg-white p-10 md:p-12 rounded-[3rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-emerald-200 transition-all duration-500 overflow-hidden">
             {/* Background glowing orb */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
-            
+
             <div>
               <div className="flex items-start justify-between mb-8">
                 <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 border border-emerald-100/50 shadow-inner">
                   <Target size={26} className="stroke-[1.5]" />
                 </div>
-                <img 
-                  src="/images/sdgs/icon3.jpg" 
-                  alt="SDG 3 Logo" 
-                  className="w-16 h-16 object-contain rounded-xl border border-slate-100 shadow-md transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105" 
+                <img
+                  src="/images/sdgs/icon3.jpg"
+                  alt="SDG 3 Logo"
+                  className="w-16 h-16 object-contain rounded-xl border border-slate-100 shadow-md transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105"
                 />
               </div>
 
@@ -121,17 +121,17 @@ const Empathy = () => {
           <div className="group relative bg-white p-10 md:p-12 rounded-[3rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-blue-200 transition-all duration-500 overflow-hidden">
             {/* Background glowing orb */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
-            
+
             <div>
               <div className="flex items-start justify-between mb-8">
                 <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100/50 shadow-inner">
                   <ClipboardList size={26} className="stroke-[1.5]" />
                 </div>
                 <div className="w-16 h-16 rounded-xl overflow-hidden border border-slate-100 shadow-md">
-                  <img 
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" 
-                    alt="Work posture" 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                  <img
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80"
+                    alt="Work posture"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
               </div>
@@ -160,9 +160,9 @@ const Empathy = () => {
           {/* Subtle background decorative shapes */}
           <div className="absolute -top-32 -right-32 w-[600px] h-[600px] bg-red-500/[0.015] rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-blue-500/[0.01] rounded-full blur-[120px] pointer-events-none" />
-          
+
           <div className="relative z-10 grid lg:grid-cols-12 gap-12 items-center">
-            
+
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 bg-red-50 text-red-600 rounded-xl"><Activity size={18} className="stroke-[2]" /></div>
@@ -171,13 +171,13 @@ const Empathy = () => {
               <h3 className="text-3xl md:text-5xl font-black text-slate-950 tracking-tight mb-8">
                 Hasil Penelitian dengan <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-rose-600">Pendekatan Empati</span>
               </h3>
-              
+
               <p className="text-base text-slate-600 leading-relaxed max-w-4xl mb-12 font-medium">
                 Penelitian ini mengintegrasikan metode <strong className="text-slate-900 font-extrabold">Kuantitatif (Survei)</strong> dan <strong className="text-slate-900 font-extrabold">Kualitatif (Wawancara)</strong> untuk mengumpulkan data riil mengenai ketersediaan akses terhadap kesadaran kesehatan kerja digital, tingkat stres, dan keluhan fisik responden di Indonesia.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 border-t border-slate-100 pt-12">
-                
+
                 {/* Method 1 Card */}
                 <div className="group/card relative bg-slate-50/50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-red-100 hover:shadow-xl hover:shadow-red-500/5 transition-all duration-300 flex flex-col justify-between">
                   <div className="absolute top-6 right-8 text-6xl font-black text-slate-100 group-hover/card:text-red-50 transition-colors pointer-events-none select-none">01</div>
@@ -211,15 +211,15 @@ const Empathy = () => {
 
             {/* Dual Images for Methodology (With interactive lightbox) */}
             <div className="lg:col-span-4 flex flex-col gap-6">
-              
+
               {/* Image 1: Survei Kuesioner (Google Form) */}
-              <div 
+              <div
                 onClick={() => openImageModal('/images/survey_screenshot.png', 'Survei Kesehatan & Kesejahteraan Pekerja')}
                 className="w-full h-44 rounded-3xl overflow-hidden border border-slate-200/60 shadow-md relative group/img cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-red-200"
               >
-                <img 
-                  src="/images/survey_screenshot.png" 
-                  alt="Survei Kesehatan & Kesejahteraan Pekerja" 
+                <img
+                  src="/images/survey_screenshot.png"
+                  alt="Survei Kesehatan & Kesejahteraan Pekerja"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                 />
                 <div className="absolute inset-0 bg-slate-950/0 group-hover/img:bg-slate-950/20 transition-colors duration-300 flex items-center justify-center">
@@ -231,15 +231,15 @@ const Empathy = () => {
                   METODE 1: KUESIONER
                 </div>
               </div>
-              
+
               {/* Image 2: Wawancara Kualitatif (Students at desk) */}
-              <div 
+              <div
                 onClick={() => openImageModal('/images/interview_photo.jpg', 'Proses Wawancara Mahasiswa')}
                 className="w-full h-44 rounded-3xl overflow-hidden border border-slate-200/60 shadow-md relative group/img cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-slate-400"
               >
-                <img 
-                  src="/images/interview_photo.jpg" 
-                  alt="Proses Wawancara Mahasiswa" 
+                <img
+                  src="/images/interview_photo.jpg"
+                  alt="Proses Wawancara Mahasiswa"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                 />
                 <div className="absolute inset-0 bg-slate-950/0 group-hover/img:bg-slate-950/20 transition-colors duration-300 flex items-center justify-center">
@@ -266,12 +266,12 @@ const Empathy = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            
+
             {/* Laporan Survei Card */}
             <div className="group relative bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-red-100/70 transition-all duration-500 overflow-hidden">
               {/* Background gradient orb */}
               <div className="absolute -top-10 -right-10 w-44 h-44 bg-gradient-to-br from-red-500/10 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
-              
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 border border-red-100/50">
@@ -281,14 +281,14 @@ const Empathy = () => {
                     SURVEI REPORT PDF
                   </span>
                 </div>
-                
+
                 {/* Interactive Mini PDF Preview */}
-                <div 
+                <div
                   onClick={() => openPdfModal('/survei.pdf', 'Laporan Hasil Survei Kesehatan & Ergonomi')}
                   className="relative w-full h-48 bg-slate-50 rounded-2xl mb-6 overflow-hidden border border-slate-100 shadow-inner cursor-pointer group/preview"
                 >
-                  <iframe 
-                    src="/survei.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                  <iframe
+                    src="/survei.pdf#toolbar=0&navpanes=0&scrollbar=0"
                     title="Survei PDF Preview"
                     className="w-full h-full border-none select-none pointer-events-none"
                     scrolling="no"
@@ -308,7 +308,7 @@ const Empathy = () => {
                 </p>
               </div>
 
-              <button 
+              <button
                 onClick={() => openPdfModal('/survei.pdf', 'Laporan Hasil Survei Kesehatan & Ergonomi')}
                 className="w-full py-4 px-8 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 border border-slate-950 group-hover:bg-red-600 group-hover:border-red-600 group-hover:shadow-red-200 group-hover:shadow-xl"
               >
@@ -320,7 +320,7 @@ const Empathy = () => {
             <div className="group relative bg-white p-10 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-lg flex flex-col justify-between hover:shadow-2xl hover:border-slate-300 transition-all duration-500 overflow-hidden">
               {/* Background gradient orb */}
               <div className="absolute -top-10 -right-10 w-44 h-44 bg-gradient-to-br from-slate-950/5 to-transparent rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
-              
+
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-800 border border-slate-200/50">
@@ -332,12 +332,12 @@ const Empathy = () => {
                 </div>
 
                 {/* Interactive Mini PDF Preview */}
-                <div 
+                <div
                   onClick={() => openPdfModal('/matrix.pdf', 'Matrix Penelitian & Empati')}
                   className="relative w-full h-48 bg-slate-50 rounded-2xl mb-6 overflow-hidden border border-slate-100 shadow-inner cursor-pointer group/preview"
                 >
-                  <iframe 
-                    src="/matrix.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+                  <iframe
+                    src="/matrix.pdf#toolbar=0&navpanes=0&scrollbar=0"
                     title="Matrix PDF Preview"
                     className="w-full h-full border-none select-none pointer-events-none"
                     scrolling="no"
@@ -348,7 +348,7 @@ const Empathy = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 <h4 className="text-2xl font-black text-slate-950 mb-4 tracking-tight group-hover:text-red-600 transition-colors duration-300">
                   Dokumen Matrix Penelitian & Empati
                 </h4>
@@ -357,7 +357,7 @@ const Empathy = () => {
                 </p>
               </div>
 
-              <button 
+              <button
                 onClick={() => openPdfModal('/matrix.pdf', 'Matrix Penelitian & Empati')}
                 className="w-full py-4 px-8 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 border border-slate-950 group-hover:shadow-xl"
               >
@@ -375,60 +375,60 @@ const Empathy = () => {
             <h3 className="text-3xl font-black text-slate-950 tracking-tight">Hasil Temuan Penelitian Utama</h3>
             <p className="text-sm text-slate-500 font-medium">Data empiris kuantitatif yang dirangkum dari respon koresponden dan menjadi dasar pengembangan solusi kami.</p>
           </div>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { 
-                value: "72.8%", 
-                title: "Paparan Layar Tinggi", 
-                desc: "Responden menghabiskan waktu 5 hingga 8 jam di depan layar setiap hari.", 
-                icon: <Monitor size={20} className="stroke-[1.5]" />, 
+              {
+                value: "72.8%",
+                title: "Paparan Layar Tinggi",
+                desc: "Responden menghabiskan waktu 5 hingga 8 jam di depan layar setiap hari.",
+                icon: <Monitor size={20} className="stroke-[1.5]" />,
                 theme: "bg-blue-50 text-blue-600 border-blue-100",
                 textGradient: "from-blue-600 to-indigo-600"
               },
-              { 
-                value: "77.2%", 
-                title: "Tingkat Stres Tinggi", 
-                desc: "Responden mengalami tingkat stres sedang hingga tinggi akibat tekanan tugas.", 
-                icon: <Brain size={20} className="stroke-[1.5]" />, 
+              {
+                value: "77.2%",
+                title: "Tingkat Stres Tinggi",
+                desc: "Responden mengalami tingkat stres sedang hingga tinggi akibat tekanan tugas.",
+                icon: <Brain size={20} className="stroke-[1.5]" />,
                 theme: "bg-red-50 text-red-600 border-red-100",
                 textGradient: "from-red-600 to-rose-600"
               },
-              { 
-                value: "77.3%", 
-                title: "Keluhan Fisik Akut", 
-                desc: "Responden sering mengeluhkan sakit punggung, leher kaku, atau mata perih.", 
-                icon: <Activity size={20} className="stroke-[1.5]" />, 
+              {
+                value: "77.3%",
+                title: "Keluhan Fisik Akut",
+                desc: "Responden sering mengeluhkan sakit punggung, leher kaku, atau mata perih.",
+                icon: <Activity size={20} className="stroke-[1.5]" />,
                 theme: "bg-orange-50 text-orange-600 border-orange-100",
                 textGradient: "from-orange-600 to-amber-600"
               },
-              { 
-                value: "45.4%", 
-                title: "Jarang Peregangan", 
-                desc: "Responden sangat jarang melakukan peregangan fisik secara rutin saat bekerja.", 
-                icon: <Heart size={20} className="stroke-[1.5]" />, 
+              {
+                value: "45.4%",
+                title: "Jarang Peregangan",
+                desc: "Responden sangat jarang melakukan peregangan fisik secara rutin saat bekerja.",
+                icon: <Heart size={20} className="stroke-[1.5]" />,
                 theme: "bg-pink-50 text-pink-600 border-pink-100",
                 textGradient: "from-pink-600 to-rose-600"
               },
-              { 
-                value: "40.9%", 
-                title: "Mengabaikan Nutrisi", 
-                desc: "Responden sering melewatkan waktu makan atau minum akibat terlalu fokus bekerja.", 
-                icon: <Coffee size={20} className="stroke-[1.5]" />, 
+              {
+                value: "40.9%",
+                title: "Mengabaikan Nutrisi",
+                desc: "Responden sering melewatkan waktu makan atau minum akibat terlalu fokus bekerja.",
+                icon: <Coffee size={20} className="stroke-[1.5]" />,
                 theme: "bg-amber-50 text-amber-800 border-amber-100",
                 textGradient: "from-amber-700 to-amber-900"
               },
-              { 
-                value: "72.7%", 
-                title: "Butuh Solusi Preventif", 
-                desc: "Responden meyakini dashboard kesehatan digital akan sangat membantu aktivitas mereka.", 
-                icon: <Target size={20} className="stroke-[1.5]" />, 
+              {
+                value: "72.7%",
+                title: "Butuh Solusi Preventif",
+                desc: "Responden meyakini dashboard kesehatan digital akan sangat membantu aktivitas mereka.",
+                icon: <Target size={20} className="stroke-[1.5]" />,
                 theme: "bg-emerald-50 text-emerald-600 border-emerald-100",
                 textGradient: "from-emerald-600 to-teal-600"
               }
             ].map((stat, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="group relative bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
@@ -438,7 +438,7 @@ const Empathy = () => {
                     </div>
                     <span className="text-[9px] font-mono font-bold text-slate-400">METRIC #{idx + 1}</span>
                   </div>
-                  
+
                   <p className={`text-4xl font-black bg-gradient-to-r ${stat.textGradient} bg-clip-text text-transparent tracking-tight mb-2`}>
                     {stat.value}
                   </p>
@@ -533,17 +533,17 @@ const Empathy = () => {
             ].map((chart, idx) => {
               const isLast = idx === 10;
               const cardContent = (
-                <div 
+                <div
                   className="group bg-white rounded-3xl border border-slate-100 p-6 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between w-full"
                 >
                   <div>
-                    <div 
+                    <div
                       onClick={() => openImageModal(chart.path, chart.title)}
                       className="relative w-full h-48 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
                     >
-                      <img 
-                        src={chart.path} 
-                        alt={chart.title} 
+                      <img
+                        src={chart.path}
+                        alt={chart.title}
                         className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover/imgcontainer:scale-[1.03]"
                       />
                       <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
@@ -589,14 +589,14 @@ const Empathy = () => {
       {activePdf && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
           {/* Backdrop */}
-          <div 
-            onClick={closePdfModal} 
+          <div
+            onClick={closePdfModal}
             className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300"
           />
-          
+
           {/* Modal Container */}
           <div className="relative bg-white w-full max-w-5xl h-[85vh] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col z-10 transition-transform duration-300 scale-100 border border-slate-100">
-            
+
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-slate-100 bg-white flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -605,20 +605,20 @@ const Empathy = () => {
                   {pdfTitle}
                 </h3>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 {/* Download Button */}
-                <a 
-                  href={activePdf} 
-                  download 
+                <a
+                  href={activePdf}
+                  download
                   className="p-2.5 bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-950 rounded-xl transition-all border border-slate-200/50 flex items-center gap-2 text-xs font-mono font-bold"
                   title="Unduh File PDF"
                 >
                   <Download size={16} /> <span className="hidden sm:inline">UNDUH</span>
                 </a>
-                
+
                 {/* Close Button */}
-                <button 
+                <button
                   onClick={closePdfModal}
                   className="p-2.5 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 rounded-xl transition-all border border-red-100/50"
                   title="Tutup Modal"
@@ -627,37 +627,37 @@ const Empathy = () => {
                 </button>
               </div>
             </div>
-            
+
             {/* Modal Content (PDF Renderer) */}
             <div className="flex-1 bg-slate-100 relative">
-              <iframe 
-                src={`${activePdf}#toolbar=0`} 
-                title={pdfTitle} 
+              <iframe
+                src={`${activePdf}#toolbar=0`}
+                title={pdfTitle}
                 className="w-full h-full border-none"
               />
             </div>
-            
+
           </div>
         </div>
       )}
       {/* Image Lightbox Modal Popup */}
       {activeImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10">
-          <div 
-            onClick={closeImageModal} 
+          <div
+            onClick={closeImageModal}
             className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300"
           />
           <div className="relative bg-white w-full max-w-4xl h-[75vh] rounded-[2rem] overflow-hidden shadow-2xl flex flex-col z-10 border border-slate-100 p-4 justify-center items-center">
-            <button 
+            <button
               onClick={closeImageModal}
               className="absolute top-6 right-6 p-2.5 bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 rounded-xl transition-all border border-red-100/50 z-20"
               title="Tutup Modal"
             >
               <X size={16} />
             </button>
-            <img 
-              src={activeImage} 
-              alt={imageTitle} 
+            <img
+              src={activeImage}
+              alt={imageTitle}
               className="w-full h-full object-contain rounded-xl"
             />
           </div>
