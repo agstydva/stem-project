@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import ScrollReveal from '../components/ScrollReveal';
 import { BookOpen, HelpCircle, FileText, CheckCircle2, Play, Clock, Globe, Heart, MessageSquare, Layers, Award } from 'lucide-react';
 
 const Reflection = () => {
@@ -61,19 +62,21 @@ const Reflection = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="relative max-w-7xl mx-auto z-10 w-full">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-ping"></span>
-              <span className="text-red-600 font-mono text-xs font-bold tracking-[0.4em] uppercase">STAGE 4: RETROSPECTIVE & REFLECTION</span>
+          <ScrollReveal variant="fade-right" duration={800}>
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-ping"></span>
+                <span className="text-red-600 font-mono text-xs font-bold tracking-[0.4em] uppercase">STAGE 4: RETROSPECTIVE & REFLECTION</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[1.05] tracking-tight mb-8">
+                Retrospective & <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Reflection.</span>
+              </h1>
+              <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
+                Mengevaluasi proses belajar, tantangan teknis, dan perolehan kompetensi baru selama implementasi riset berbasis tujuan global SDGs.
+              </p>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[1.05] tracking-tight mb-8">
-              Retrospective & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Reflection.</span>
-            </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
-              Mengevaluasi proses belajar, tantangan teknis, dan perolehan kompetensi baru selama implementasi riset berbasis tujuan global SDGs.
-            </p>
-          </div>
+          </ScrollReveal>
         </div>
       </header>
 
@@ -88,7 +91,7 @@ const Reflection = () => {
             <p className="text-sm text-slate-500 font-medium">Tonton video presentasi saya mengenai implementasi proses Design Thinking dan demo platform WorkWell.</p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <ScrollReveal variant="zoom-in" duration={800} className="max-w-4xl mx-auto">
             <div className="relative group rounded-[2.5rem] overflow-hidden border border-slate-200/50 shadow-2xl bg-slate-950 aspect-video p-2 transition-all duration-500 hover:border-red-100">
 
               {!isPlaying ? (
@@ -147,7 +150,7 @@ const Reflection = () => {
               )}
 
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         {/* 2. Reflection Questions Section */}
@@ -160,38 +163,44 @@ const Reflection = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {reflectionData.map((item, idx) => (
-              <div
+              <ScrollReveal
                 key={idx}
-                className={`group relative bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-100/80 shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between ${item.accentClass
-                  } ${idx === 4 ? 'md:col-span-2' : ''}`}
+                variant="fade-up"
+                delay={idx * 100}
+                duration={700}
+                className={`h-full ${idx === 4 ? 'md:col-span-2' : ''}`}
               >
-                {/* Background glowing orb indicator */}
-                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-slate-950/[0.01] to-transparent rounded-full blur-2xl pointer-events-none" />
+                <div
+                  className={`group relative bg-white p-8 md:p-10 rounded-[2.5rem] border border-slate-100/80 shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between h-full ${item.accentClass}`}
+                >
+                  {/* Background glowing orb indicator */}
+                  <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-slate-950/[0.01] to-transparent rounded-full blur-2xl pointer-events-none" />
 
-                <div className="space-y-6">
-                  {/* Top bar: number and custom theme icon */}
-                  <div className="flex items-center justify-between">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-black text-base border transition-all duration-500 ${item.numClass}`}>
-                      {item.num}
+                  <div className="space-y-6">
+                    {/* Top bar: number and custom theme icon */}
+                    <div className="flex items-center justify-between">
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-mono font-black text-base border transition-all duration-500 ${item.numClass}`}>
+                        {item.num}
+                      </div>
+                      <div className="w-9 h-9 bg-slate-50 text-slate-400 group-hover:text-slate-900 rounded-xl flex items-center justify-center border border-slate-100 transition-colors duration-300">
+                        {item.icon}
+                      </div>
                     </div>
-                    <div className="w-9 h-9 bg-slate-50 text-slate-400 group-hover:text-slate-900 rounded-xl flex items-center justify-center border border-slate-100 transition-colors duration-300">
-                      {item.icon}
+
+                    {/* Question */}
+                    <h3 className="text-lg font-black text-slate-950 leading-snug tracking-tight group-hover:text-slate-900 transition-colors duration-300">
+                      {item.question}
+                    </h3>
+
+                    {/* Answer Box */}
+                    <div className="relative bg-slate-50/60 group-hover:bg-slate-50/90 p-5 rounded-2xl border-l-4 border-slate-200 group-hover:border-slate-300 transition-all duration-500">
+                      <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-normal whitespace-pre-line">
+                        {item.answer}
+                      </p>
                     </div>
-                  </div>
-
-                  {/* Question */}
-                  <h3 className="text-lg font-black text-slate-950 leading-snug tracking-tight group-hover:text-slate-900 transition-colors duration-300">
-                    {item.question}
-                  </h3>
-
-                  {/* Answer Box */}
-                  <div className="relative bg-slate-50/60 group-hover:bg-slate-50/90 p-5 rounded-2xl border-l-4 border-slate-200 group-hover:border-slate-300 transition-all duration-500">
-                    <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-normal whitespace-pre-line">
-                      {item.answer}
-                    </p>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
@@ -200,22 +209,24 @@ const Reflection = () => {
 
       {/* Footer Branding */}
       <footer className="max-w-7xl mx-auto pb-32 px-6">
-        <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-xl shadow-slate-950/20">
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-red-500/10 rounded-full blur-[80px] pointer-events-none" />
+        <ScrollReveal variant="zoom-in" duration={800}>
+          <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden shadow-xl shadow-slate-950/20">
+            <div className="absolute -top-24 -right-24 w-80 h-80 bg-red-500/10 rounded-full blur-[80px] pointer-events-none" />
 
-          <div className="relative z-10 text-center max-w-2xl mx-auto space-y-4">
-            <span className="text-red-500 font-mono text-[10px] uppercase tracking-[0.3em] font-black block">Final Milestone</span>
-            <h3 className="text-2xl md:text-4xl font-black tracking-tight leading-tight">
-              Komitmen Terhadap Riset & Solusi Berkelanjutan
-            </h3>
-            <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed">
-              Seluruh proses reflektif ini menjadi basis pembelajaran penting bagi kami untuk terus merancang solusi yang humanis, empiris, dan berdampak nyata bagi target global SDGs.
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-red-400">
-              <CheckCircle2 size={14} /> Reflection Stage Completed Successfully
+            <div className="relative z-10 text-center max-w-2xl mx-auto space-y-4">
+              <span className="text-red-500 font-mono text-[10px] uppercase tracking-[0.3em] font-black block">Final Milestone</span>
+              <h3 className="text-2xl md:text-4xl font-black tracking-tight leading-tight">
+                Komitmen Terhadap Riset & Solusi Berkelanjutan
+              </h3>
+              <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed">
+                Seluruh proses reflektif ini menjadi basis pembelajaran penting bagi kami untuk terus merancang solusi yang humanis, empiris, dan berdampak nyata bagi target global SDGs.
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-red-400">
+                <CheckCircle2 size={14} /> Reflection Stage Completed Successfully
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </footer>
 
     </div>

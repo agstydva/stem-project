@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
+import ScrollReveal from '../components/ScrollReveal';
 import { Maximize2, X, Globe, ExternalLink, RefreshCw, Layers } from 'lucide-react';
 
 const Prototyping = () => {
@@ -71,18 +72,20 @@ const Prototyping = () => {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="relative max-w-7xl mx-auto z-10 w-full">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse"></span>
-              <span className="text-red-600 font-mono text-xs font-bold tracking-[0.4em] uppercase">STAGE 3: FIGMA & DEVELOPMENT</span>
+          <ScrollReveal variant="fade-right" duration={800}>
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-600 animate-pulse"></span>
+                <span className="text-red-600 font-mono text-xs font-bold tracking-[0.4em] uppercase">STAGE 3: FIGMA & DEVELOPMENT</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[1.05] tracking-tight mb-8">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Prototype.</span>
+              </h1>
+              <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
+                Menampilkan transformasi desain visual dari Figma mockups langsung menjadi produk aplikasi web fungsional yang siap dijalankan.
+              </p>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[1.05] tracking-tight mb-8">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-rose-700">Prototype.</span>
-            </h1>
-            <p className="text-lg md:text-xl leading-relaxed text-slate-500 font-light tracking-tight max-w-2xl">
-              Menampilkan transformasi desain visual dari Figma mockups langsung menjadi produk aplikasi web fungsional yang siap dijalankan.
-            </p>
-          </div>
+          </ScrollReveal>
         </div>
       </header>
 
@@ -111,84 +114,93 @@ const Prototyping = () => {
           {/* Grid Layout of Screenshots */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {figmaScreenshots.map((item, idx) => (
-              <div
-                key={item.id}
-                className="group bg-white rounded-3xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between"
+              <ScrollReveal 
+                key={item.id} 
+                variant="fade-up" 
+                delay={(idx % 3) * 80} 
+                duration={600}
+                className="h-full"
               >
-                <div>
-                  <div
-                    onClick={() => openImageModal(item.path, item.title)}
-                    className="relative w-full h-56 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
-                  >
-                    <img
-                      src={item.path}
-                      alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-750 group-hover/imgcontainer:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
-                      <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
-                        <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
-                      </span>
+                <div
+                  className="group bg-white rounded-3xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-red-100/50 transition-all duration-500 flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div
+                      onClick={() => openImageModal(item.path, item.title)}
+                      className="relative w-full h-56 bg-slate-50 rounded-2xl mb-5 overflow-hidden border border-slate-100 shadow-inner flex items-center justify-center cursor-pointer group/imgcontainer"
+                    >
+                      <img
+                        src={item.path}
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-750 group-hover/imgcontainer:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-slate-950/0 group-hover/imgcontainer:bg-slate-950/5 transition-colors duration-300 flex items-center justify-center">
+                        <span className="opacity-0 group-hover/imgcontainer:opacity-100 bg-white/95 backdrop-blur-md text-slate-900 font-mono text-[9px] font-bold tracking-widest px-4 py-2.5 rounded-xl border border-slate-100 shadow-md transition-opacity duration-300 flex items-center gap-2">
+                          <Maximize2 size={10} /> KLIK UNTUK MEMPERBESAR
+                        </span>
+                      </div>
                     </div>
+                    <h3 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base font-black text-slate-950 tracking-tight mb-2 leading-tight group-hover:text-red-600 transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
+                  <div className="mt-4 pt-4 border-t border-slate-50 text-[9px] font-mono font-bold text-slate-400">
+                    FIGMA BOARD MOCKUP #{item.id}
+                  </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-slate-50 text-[9px] font-mono font-bold text-slate-400">
-                  FIGMA BOARD MOCKUP #{item.id}
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* SECTION 2: LIVE WEB APP EMBED */}
-        <section className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group max-w-6xl mx-auto space-y-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">LIVE DEMO IMPLEMENTATION</span>
-              <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
-                WorkWell: Aplikasi Web Hasil Akhir
-              </h2>
+        <ScrollReveal variant="zoom-in" duration={800}>
+          <section className="bg-white rounded-[3rem] p-10 md:p-16 border border-slate-100 shadow-xl overflow-hidden group max-w-6xl mx-auto space-y-8">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <span className="text-[10px] font-mono font-bold text-red-600 uppercase tracking-widest block mb-2">LIVE DEMO IMPLEMENTATION</span>
+                <h2 className="text-2xl md:text-3xl font-black text-slate-950 tracking-tight">
+                  WorkWell: Aplikasi Web Hasil Akhir
+                </h2>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button 
+                  onClick={handleReload}
+                  className="p-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-xs font-mono font-bold px-4 py-3"
+                  title="Reload App"
+                >
+                  <RefreshCw size={14} /> RELOAD
+                </button>
+                <a 
+                  href="https://workwell-stem.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-5 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2"
+                >
+                  <Globe size={14} /> BUKA DI TAB BARU
+                </a>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <button 
-                onClick={handleReload}
-                className="p-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-xs font-mono font-bold px-4 py-3"
-                title="Reload App"
-              >
-                <RefreshCw size={14} /> RELOAD
-              </button>
-              <a 
-                href="https://workwell-stem.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-3 px-5 bg-slate-950 hover:bg-slate-900 text-white rounded-2xl font-mono text-xs font-bold tracking-widest text-center shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2"
-              >
-                <Globe size={14} /> BUKA DI TAB BARU
-              </a>
+            <p className="text-sm text-slate-500 leading-relaxed font-medium">
+              Di bawah ini adalah aplikasi web <strong>WorkWell</strong> yang telah di-deploy ke Vercel secara langsung. Anda dapat berinteraksi penuh dengan dashboard kesehatan kognitif-fisik, mengatur timer screen-time, mencatat hidrasi air, dan menggunakan panduan peregangan dinamis dari dalam frame di bawah ini.
+            </p>
+
+            <div className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-2xl bg-slate-950 h-[650px]">
+              <iframe 
+                key={iframeKey}
+                src="https://workwell-stem.vercel.app/" 
+                title="WorkWell Live Web Application Embed"
+                className="w-full h-full border-none bg-white"
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              />
             </div>
-          </div>
-
-          <p className="text-sm text-slate-500 leading-relaxed font-medium">
-            Di bawah ini adalah aplikasi web <strong>WorkWell</strong> yang telah di-deploy ke Vercel secara langsung. Anda dapat berinteraksi penuh dengan dashboard kesehatan kognitif-fisik, mengatur timer screen-time, mencatat hidrasi air, dan menggunakan panduan peregangan dinamis dari dalam frame di bawah ini.
-          </p>
-
-          <div className="relative rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-2xl bg-slate-950 h-[650px]">
-            <iframe 
-              key={iframeKey}
-              src="https://workwell-stem.vercel.app/" 
-              title="WorkWell Live Web Application Embed"
-              className="w-full h-full border-none bg-white"
-              sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-            />
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
       </main>
 
